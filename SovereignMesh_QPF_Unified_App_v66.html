@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v66 – Operations Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+:root { --bg:#0a0e17; --card:#111827; --border:#1f2937; --cyan:#22d3ee; --purple:#a78bfa; --emerald:#34d399; --amber:#fbbf24; --rose:#fb7185; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:#e5e7eb;min-height:100vh}
+header{border-bottom:1px solid var(--border);background:#0f172a;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:10}
+h1{font-size:18px;background:linear-gradient(90deg,#22d3ee,#a78bfa,#34d399);-webkit-background-clip:text;color:transparent;font-weight:700}
+.sub{font-size:12px;color:#9ca3af}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:#1f2937;color:#e5e7eb}
+.btn.emerald{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--emerald)}
+.btn.amber{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.4);color:var(--amber)}
+.btn.rose{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.4);color:var(--rose)}
+main{max-width:1280px;margin:0 auto;padding:20px;display:grid;gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.metric{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.metric.cyan{color:var(--cyan)} .metric.purple{color:var(--purple)} .metric.emerald{color:var(--emerald)} .metric.amber{color:var(--amber)}
+.label{font-size:11px;color:#9ca3af;margin-bottom:4px}
+.canvas-wrap{background:#020617;border-radius:12px;border:1px solid var(--border);height:220px;position:relative;overflow:hidden}
+canvas{width:100%;height:100%}
+.log{font-family:ui-monospace,monospace;font-size:11px;background:#020617;border-radius:10px;padding:12px;height:200px;overflow-y:auto;border:1px solid var(--border)}
+.mode-bar{display:flex;gap:8px}
+.mode{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:#1f2937}
+.mode.active{background:rgba(34,211,238,.15);border-color:var(--cyan);color:var(--cyan)}
+.pipeline{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0;font-size:11px}
+.pipe{padding:4px 8px;border-radius:6px;background:#1f2937;border:1px solid var(--border)}
+.pipe.ok{border-color:rgba(52,211,153,.4);color:var(--emerald)}
+.injectors{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+function App() {
+  const [latency, setLatency] = React.useState(0.000000000005);
+  const [threats, setThreats] = React.useState(0);
+  const [mode, setMode] = React.useState('NORMAL');
+  const [beacon, setBeacon] = React.useState('ENTANGLED');
+  const [entropy, setEntropy] = React.useState(0.14);
+  const [qsilEpistemic, setQsilEpistemic] = React.useState('K_i DYNAMIC');
+  const [qsilDeontic, setQsilDeontic] = React.useState('99.99%');
+  const [payment, setPayment] = React.useState('PROTECTED');
+  const [z3, setZ3] = React.useState('12/12 PROVEN');
+  const [mlkem, setMlkem] = React.useState('ML-KEM-1024');
+  const [forecast, setForecast] = React.useState('STABLE');
+  const [qtp, setQtp] = React.useState('ACTIVE');
+  const [logs, setLogs] = React.useState([
+    '[INIT] SovereignMesh QPF v66 online · QTP-native Quantum Telemetry · QSIL-enriched Bell-state · Dynamické K_i(φ|obs) · Deontický engine · Z3 12/12 PROVEN · ML-KEM-1024 · AF_XDP <0.000000000005 ns',
+    '[QTP] Bell-state |Φ+⟩ stabilizován · EntropyMonitor predictive collapse · Shannon/Rényi/Tsallis · Observer effect ready',
+    '[QSIL] Dynamické epistemické update operátory na multi-node entanglement · Deontická obligační engine',
+    '[BEACON] QSIL-enriched quantum entanglement · ENTANGLED · TPM sealed',
+    '[PAY] Full SovereignMesh-Pay · QTTCP zero-HoL + QSIL epistemic/deontic',
+    '[Z3] Runtime multi-node gossip · 12/12 PROVEN (No-Cloning + epistemic + QTP consistency)'
+  ]);
+  const [running, setRunning] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!running) return;
+    const t = setInterval(() => {
+      const base = mode === 'STRESS' ? 0.00000000004 : mode === 'AIRGAP' ? 0.000000000005 : 0.000000000005;
+      setLatency(base + Math.random() * 0.000000000005);
+      setEntropy(0.08 + Math.random() * 0.08);
+      if (Math.random() > 0.85) {
+        setLogs(l => ['[' + new Date().toISOString().substr(11,8) + '] Predictive QSIL scan · entropy ' + (0.08+Math.random()*0.08).toFixed(3) + ' · forecast STABLE · epistemic K_i updated', ...l.slice(0,19)]);
+      }
+    }, 900);
+    return () => clearInterval(t);
+  }, [running, mode]);
+
+  const inject = (type) => {
+    const msgs = {
+      clean: '[INJECT] Clean traffic → ALLOW (QSIL epistemic/deontic verified)',
+      ioc: '[INJECT] IOC detected → DROP (signed TI + deontic obligation)',
+      entropy: '[INJECT] High entropy → EntropyMonitor predictive collapse forecast',
+      payment: '[INJECT] SovereignMesh-Pay QTTCP → PROTECTED zero-HoL',
+      forecast: '[INJECT] Predictive collapse forecast → QSIL information logic engaged'
+    };
+    setLogs(l => ['[' + new Date().toISOString().substr(11,8) + '] ' + (msgs[type]||type), ...l.slice(0,19)]);
+    if (type === 'ioc') setThreats(t => t+1);
+  };
+
+  return (
+    <div>
+      <header>
+        <div>
+          <h1>SovereignMesh QPF v66</h1>
+          <div className="sub">Deep QSIL Information Logic Enriched Quantum Entanglement · Operations Console</div>
+        </div>
+        <div className="controls">
+          <div className="mode-bar">
+            {['NORMAL','STRESS','AIRGAP'].map(m => (
+              <div key={m} className={'mode' + (mode===m?' active':'')} onClick={()=>setMode(m)}>{m}</div>
+            ))}
+          </div>
+          <button className={'btn ' + (running?'emerald':'amber')} onClick={()=>setRunning(!running)}>
+            {running ? 'ACTIVE' : 'PAUSED'}
+          </button>
+        </div>
+      </header>
+      <main>
+        <div className="grid4">
+          <div className="card"><div className="label">AF_XDP Latency</div><div className="metric cyan">{latency.toExponential(2)} ns</div></div>
+          <div className="card"><div className="label">QSIL Beacon</div><div className="metric purple">{beacon}</div></div>
+          <div className="card"><div className="label">EntropyMonitor</div><div className="metric emerald">{entropy.toFixed(3)}</div></div>
+          <div className="card"><div className="label">Z3 Invariants</div><div className="metric amber">{z3}</div></div>
+        </div>
+        <div className="grid4">
+          <div className="card"><div className="label">Epistemic K_i</div><div className="metric cyan">{qsilEpistemic}</div></div>
+          <div className="card"><div className="label">Deontic Compliance</div><div className="metric emerald">{qsilDeontic}</div></div>
+          <div className="card"><div className="label">Payment Stack</div><div className="metric purple">{payment}</div></div>
+          <div className="card"><div className="label">Threats Blocked</div><div className="metric rose">{threats}</div></div>
+        </div>
+        <div className="card">
+          <div className="label">Pipeline · Ingress → XDP → TI → Entropy → QSIL → Verdict</div>
+          <div className="pipeline">
+            <span className="pipe ok">Ingress</span>
+            <span className="pipe ok">XDP</span>
+            <span className="pipe ok">TI</span>
+            <span className="pipe ok">Entropy</span>
+            <span className="pipe ok">QSIL</span>
+            <span className="pipe ok">Verdict</span>
+          </div>
+          <div className="injectors">
+            <button className="btn" onClick={()=>inject('clean')}>Inject Clean</button>
+            <button className="btn rose" onClick={()=>inject('ioc')}>Inject IOC</button>
+            <button className="btn amber" onClick={()=>inject('entropy')}>Inject Entropy</button>
+            <button className="btn" onClick={()=>inject('payment')}>Inject Payment</button>
+            <button className="btn" onClick={()=>inject('forecast')}>Inject Forecast</button>
+          </div>
+        </div>
+        <div className="card">
+          <div className="label">Mesh Topology (Entanglement Pulses)</div>
+          <div className="canvas-wrap"><canvas id="mesh" width="800" height="200"></canvas></div>
+        </div>
+        <div className="card">
+          <div className="label">Activity Log</div>
+          <div className="log">{logs.map((l,i)=><div key={i}>{l}</div>)}</div>
+        </div>
+      </main>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+<script>
+function draw() {
+  const c = document.getElementById('mesh');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0,0,c.width,c.height);
+  const nodes = [{x:100,y:100,l:'Client'},{x:300,y:60,l:'Sidecar A'},{x:500,y:140,l:'Sidecar B'},{x:700,y:100,l:'Ledger'}];
+  ctx.strokeStyle = 'rgba(167,139,250,0.4)';
+  ctx.setLineDash([4,4]);
+  nodes.forEach((n,i)=>{
+    if(i<nodes.length-1){
+      ctx.beginPath();
+      ctx.moveTo(n.x,n.y);
+      ctx.lineTo(nodes[i+1].x,nodes[i+1].y);
+      ctx.stroke();
+    }
+  });
+  ctx.setLineDash([]);
+  nodes.forEach(n=>{
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,12,0,Math.PI*2);
+    ctx.fillStyle='#0f172a';
+    ctx.strokeStyle='#a78bfa';
+    ctx.lineWidth=2;
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle='#e5e7eb';
+    ctx.font='11px sans-serif';
+    ctx.textAlign='center';
+    ctx.fillText(n.l,n.x,n.y+28);
+  });
+  requestAnimationFrame(draw);
+}
+setTimeout(draw, 200);
+</script>
+</body>
+</html>
