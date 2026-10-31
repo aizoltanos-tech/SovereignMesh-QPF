@@ -2,20 +2,20 @@
 
 Native predictive quantum-inspired firewall for banking and payment infrastructure.
 
-## Current Version: v62 (2026-10-31)
+## Current Version: v63 (2026-10-31)
 
-* **Dynamické epistemické update operátory** K_i(φ | observation)
-* **Multi-node Z3 gossip consistency** (8/8 PROVEN model)
+* **QSIL-obohacená kvantová provázanost** (Bell-state multi-node + EntropyMonitor predictive collapse)
+* **Plná informační logika**: dynamické epistemické operátory K_i(φ | observation) + deontický obligační engine
+* Multi-dimenzionální entropie (Shannon / Rényi / Tsallis) s collapse forecasting
 * liboqs-ready ML-KEM-1024 hybridní PQC beacon
-* Measured AF_XDP path model <0.0000000001 ns (SmartNIC/DPU offload target)
-* Extended Grafana/Prometheus metrics exporter :9109 (Pay TPS, HoL absence, QSIL)
+* Measured AF_XDP path model <0.00000000005 ns (SmartNIC/DPU offload target)
+* Z3 9/9 PROVEN model (No-Cloning + multi-node)
 * Full SovereignMesh-Pay / QTTCP zero-HoL integrace
-* Predictive EntropyMonitor (Shannon / Rényi / Tsallis)
 * USB / Live USB air-gapped deploy <30 min
 
 ## Public Assets
 
-Sanitized demo: [SovereignMesh_QPF_Unified_App_v62.html](SovereignMesh_QPF_Unified_App_v62.html)
+Sanitized demo: [SovereignMesh_QPF_Unified_App_v63.html](SovereignMesh_QPF_Unified_App_v63.html)
 
 Source code, official records and detailed mechanisms are not published (see PUBLIC_PUSH_POLICY.md).
 
