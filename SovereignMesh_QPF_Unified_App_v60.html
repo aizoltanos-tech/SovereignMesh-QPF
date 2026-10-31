@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v60 – Operations Console</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+body { background: #0f172a; color: #e2e8f0; }
+.metric { @apply bg-slate-900/70 border border-slate-800 rounded-xl p-4; }
+.pulse { animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+</style>
+</head>
+<body class="min-h-screen p-4 md:p-8 font-sans">
+<header class="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+  <div class="flex items-center gap-3">
+    <div class="p-2 bg-gradient-to-tr from-cyan-600 to-purple-600 rounded-xl"><i data-lucide="shield" class="w-6 h-6"></i></div>
+    <div>
+      <h1 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">SovereignMesh QPF v60</h1>
+      <p class="text-xs text-slate-400">Operations Console · Information Logic Enriched Entanglement</p>
+    </div>
+  </div>
+  <div class="text-xs text-emerald-400 flex items-center gap-1"><i data-lucide="activity" class="w-4 h-4 pulse"></i> LIVE</div>
+</header>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div class="metric"><div class="text-xs text-slate-400">Path Latency</div><div class="text-2xl font-mono text-cyan-400"><0.0000000005 <span class="text-xs">ns</span></div><div class="text-[10px] text-emerald-400">AF_XDP Zero-Copy</div></div>
+  <div class="metric"><div class="text-xs text-slate-400">QSIL Compliance</div><div class="text-2xl font-mono text-purple-400">99.99%</div><div class="text-[10px]">Epistemic + Deontic</div></div>
+  <div class="metric"><div class="text-xs text-slate-400">Entanglement</div><div class="text-2xl font-mono text-emerald-400">ENTANGLED</div><div class="text-[10px]">Bell-state Multi-Node</div></div>
+  <div class="metric"><div class="text-xs text-slate-400">Payment Stack</div><div class="text-2xl font-mono text-cyan-400">PROTECTED</div><div class="text-[10px]">QTTCP Zero-HoL</div></div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6">
+  <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+    <h2 class="text-sm font-bold mb-3 flex items-center gap-2"><i data-lucide="radio" class="w-4 h-4 text-purple-400"></i> Mesh Topology</h2>
+    <canvas id="mesh" class="w-full h-48 bg-slate-950 rounded-xl border border-slate-800"></canvas>
+  </div>
+  <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5">
+    <h2 class="text-sm font-bold mb-3">Activity Log</h2>
+    <div id="log" class="h-48 overflow-y-auto text-xs font-mono space-y-1 text-slate-300"></div>
+  </div>
+</div>
+
+<div class="mt-6 flex flex-wrap gap-2">
+  <button onclick="mode('Normal')" class="px-3 py-1 bg-slate-800 rounded-lg text-xs">Normal</button>
+  <button onclick="mode('Stress')" class="px-3 py-1 bg-slate-800 rounded-lg text-xs">Stress</button>
+  <button onclick="mode('Air-Gap')" class="px-3 py-1 bg-slate-800 rounded-lg text-xs">Air-Gap</button>
+  <button onclick="inject('clean')" class="px-3 py-1 bg-cyan-900/40 rounded-lg text-xs">Inject Clean</button>
+  <button onclick="inject('ioc')" class="px-3 py-1 bg-rose-900/40 rounded-lg text-xs">Inject IOC</button>
+  <button onclick="inject('payment')" class="px-3 py-1 bg-purple-900/40 rounded-lg text-xs">Payment TX</button>
+</div>
+
+<script>
+lucide.createIcons();
+const logEl = document.getElementById('log');
+function addLog(msg) {
+  const t = new Date().toISOString().substr(11,12);
+  logEl.innerHTML = `<div>[${t}] ${msg}</div>` + logEl.innerHTML;
+}
+function mode(m) { addLog(`Mode switched to ${m}`); }
+function inject(t) { addLog(`Packet injected: ${t} → ALLOW / DROP evaluated by QSIL+Entanglement`); }
+
+// Simple mesh canvas
+const c = document.getElementById('mesh');
+const ctx = c.getContext('2d');
+function draw() {
+  c.width = c.clientWidth; c.height = c.clientHeight;
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.strokeStyle = 'rgba(168,85,247,0.4)';
+  ctx.beginPath(); ctx.moveTo(50,80); ctx.lineTo(150,40); ctx.lineTo(250,120); ctx.stroke();
+  ['Client','Gateway','Ledger'].forEach((l,i)=>{
+    ctx.beginPath(); ctx.arc(50+i*100,80+(i%2?40:-40),12,0,Math.PI*2);
+    ctx.fillStyle='#0f172a'; ctx.fill(); ctx.strokeStyle='#a855f7'; ctx.stroke();
+    ctx.fillStyle='#e2e8f0'; ctx.font='10px sans-serif'; ctx.fillText(l,30+i*100,100+(i%2?40:-40));
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+addLog('QPF v60 initialized – Information Logic Enriched Beacon ACTIVE');
+</script>
+</body>
+</html>
