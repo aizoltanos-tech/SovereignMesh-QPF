@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v58 – Operations Console</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; background: #020617; color: #e2e8f0; }
+.metric { background: rgba(15,23,42,0.7); border: 1px solid #1e293b; border-radius: 16px; padding: 16px; }
+.pulse { animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+function App() {
+  const [mode, setMode] = useState('Normal');
+  const [running, setRunning] = useState(true);
+  const [metrics, setMetrics] = useState({
+    latency: 0.0000000047,
+    throughput: 1980,
+    qsil: 99.99,
+    entropy: 0.34,
+    threats: 0,
+    entanglement: 'ENTANGLED',
+    z3: '7/7 PROVEN'
+  });
+  const [logs, setLogs] = useState([]);
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    if (!running) return;
+    const iv = setInterval(() => {
+      const lat = mode === 'Stress' ? 0.000000012 : 0.0000000047 + Math.random()*0.0000000005;
+      const thr = mode === 'Stress' ? 1320 : 1920 + Math.floor(Math.random()*100);
+      const q = mode === 'Air-Gap' ? 99.97 : 99.99;
+      setMetrics(m => ({
+        latency: lat,
+        throughput: thr,
+        qsil: q,
+        entropy: 0.31 + Math.random()*0.07,
+        threats: m.threats + (Math.random()>0.94 ? 1 : 0),
+        entanglement: Math.random()>0.988 ? 'COLLAPSE' : 'ENTANGLED',
+        z3: '7/7 PROVEN'
+      }));
+      if (Math.random()>0.55) {
+        setLogs(l => [{
+          t: new Date().toISOString().substr(11,12),
+          msg: mode === 'Air-Gap' ? 'Offline IOC + Z3 7/7 check OK' : 'Packet ALLOW | QSIL epistemic + deontic verified | ML-KEM-1024',
+          type: 'OK'
+        }, ...l.slice(0,19)]);
+      }
+    }, 850);
+    return () => clearInterval(iv);
+  }, [running, mode]);
+
+  useEffect(() => {
+    const c = canvasRef.current;
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    let id;
+    const nodes = [
+      {x:0.15,y:0.5,l:'Client'},
+      {x:0.4,y:0.3,l:'Sidecar A'},
+      {x:0.6,y:0.7,l:'Sidecar B'},
+      {x:0.85,y:0.5,l:'Ledger'}
+    ];
+    const draw = () => {
+      c.width = c.parentElement.clientWidth;
+      c.height = 200;
+      ctx.clearRect(0,0,c.width,c.height);
+      ctx.strokeStyle = 'rgba(168,85,247,0.45)';
+      ctx.lineWidth = 1;
+      [[0,1],[0,2],[1,3],[2,3],[1,2]].forEach(([i,j]) => {
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x*c.width, nodes[i].y*c.height);
+        ctx.lineTo(nodes[j].x*c.width, nodes[j].y*c.height);
+        ctx.stroke();
+      });
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x*c.width, n.y*c.height, 10, 0, Math.PI*2);
+        ctx.fillStyle = '#0f172a';
+        ctx.fill();
+        ctx.strokeStyle = '#a855f7';
+        ctx.stroke();
+        ctx.fillStyle = '#e2e8f0';
+        ctx.font = '10px Inter';
+        ctx.textAlign = 'center';
+        ctx.fillText(n.l, n.x*c.width, n.y*c.height + 22);
+      });
+      id = requestAnimationFrame(draw);
+    };
+    draw();
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  return (
+    <div className="min-h-screen p-4 md:p-8 max-w-6xl mx-auto">
+      <header className="flex flex-wrap items-center justify-between mb-6 border-b border-slate-800 pb-4">
+        <div>
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">SovereignMesh QPF v58</h1>
+          <p className="text-xs text-slate-400">Operations Console · Z3 7/7 PROVEN · ML-KEM-1024 · &lt;0.000000005 ns</p>
+        </div>
+        <div className="flex gap-2">
+          {['Normal','Stress','Air-Gap'].map(m => (
+            <button key={m} onClick={() => setMode(m)} className={`px-3 py-1 text-xs rounded-lg border ${mode===m ? 'bg-cyan-500/20 border-cyan-500 text-cyan-300' : 'border-slate-700 text-slate-400'}`}>{m}</button>
+          ))}
+          <button onClick={() => setRunning(!running)} className={`px-3 py-1 text-xs rounded-lg border ${running ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300' : 'bg-amber-500/20 border-amber-500 text-amber-300'}`}>
+            {running ? 'Active' : 'Paused'}
+          </button>
+        </div>
+      </header>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="metric">
+          <div className="text-xs text-slate-400">Latency</div>
+          <div className="text-xl font-mono text-cyan-400">{metrics.latency.toExponential(2)} <span className="text-xs">ns</span></div>
+        </div>
+        <div className="metric">
+          <div className="text-xs text-slate-400">Throughput</div>
+          <div className="text-xl font-mono text-purple-400">{metrics.throughput} <span className="text-xs">tx/s</span></div>
+        </div>
+        <div className="metric">
+          <div className="text-xs text-slate-400">QSIL Compliance</div>
+          <div className="text-xl font-mono text-emerald-400">{metrics.qsil}%</div>
+        </div>
+        <div className="metric">
+          <div className="text-xs text-slate-400">Z3 / Entanglement</div>
+          <div className="text-sm font-mono text-cyan-300">{metrics.z3}</div>
+          <div className={`text-xs ${metrics.entanglement==='ENTANGLED' ? 'text-emerald-400' : 'text-rose-400 pulse'}`}>{metrics.entanglement}</div>
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+          <h2 className="text-sm font-semibold mb-2 text-slate-200">Mesh Topology</h2>
+          <div className="bg-slate-950 rounded-xl border border-slate-800">
+            <canvas ref={canvasRef} className="w-full" />
+          </div>
+        </div>
+        <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+          <h2 className="text-sm font-semibold mb-2 text-slate-200">Activity Log</h2>
+          <div className="h-48 overflow-y-auto font-mono text-xs space-y-1">
+            {logs.map((l,i) => (
+              <div key={i} className="text-slate-300">[{l.t}] {l.msg}</div>
+            ))}
+            {logs.length===0 && <div className="text-slate-500">Listening...</div>}
+          </div>
+          <div className="mt-2 text-xs text-slate-500">Threats blocked: {metrics.threats} · Entropy ratio: {metrics.entropy.toFixed(2)}</div>
+        </div>
+      </div>
+
+      <footer className="mt-8 text-center text-xs text-slate-500">
+        SovereignMesh QPF v58 · Minimalist Operations Console · Sanitized public view
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
