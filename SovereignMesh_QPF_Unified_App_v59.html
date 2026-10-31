@@ -3,99 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <title>SovereignMesh QPF v59 – Operations Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <style>
-body { margin:0; background:#0f172a; color:#e2e8f0; font-family:system-ui,sans-serif; }
-.card { background:#1e293b; border:1px solid #334155; border-radius:12px; padding:16px; }
-.metric { font-size:1.8rem; font-weight:700; color:#22d3ee; }
-.ok { color:#34d399; } .warn { color:#fbbf24; }
-button { background:#334155; color:#e2e8f0; border:1px solid #475569; border-radius:8px; padding:6px 12px; cursor:pointer; }
-button.active { background:#0e7490; border-color:#22d3ee; }
-canvas { width:100%; height:180px; background:#020617; border-radius:8px; }
+:root { --bg:#0a0e17; --card:#111827; --border:#1f2937; --cyan:#22d3ee; --purple:#a78bfa; --emerald:#34d399; --amber:#fbbf24; --rose:#fb7185; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:#e5e7eb;min-height:100vh}
+header{border-bottom:1px solid var(--border);background:#0f172a;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:10}
+h1{font-size:18px;background:linear-gradient(90deg,#22d3ee,#a78bfa,#34d399);-webkit-background-clip:text;color:transparent;font-weight:700}
+.sub{font-size:12px;color:#9ca3af}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:#1f2937;color:#e5e7eb}
+.btn.emerald{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--emerald)}
+.btn.amber{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.4);color:var(--amber)}
+.btn.rose{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.4);color:var(--rose)}
+main{max-width:1280px;margin:0 auto;padding:20px;display:grid;gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.metric{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.metric.cyan{color:var(--cyan)} .metric.purple{color:var(--purple)} .metric.emerald{color:var(--emerald)} .metric.amber{color:var(--amber)}
+.label{font-size:11px;color:#9ca3af;margin-bottom:4px}
+.canvas-wrap{background:#020617;border-radius:12px;border:1px solid var(--border);height:220px;position:relative;overflow:hidden}
+canvas{width:100%;height:100%}
+.log{font-family:ui-monospace,monospace;font-size:11px;background:#020617;border-radius:10px;padding:12px;height:200px;overflow-y:auto;border:1px solid var(--border)}
+.mode-bar{display:flex;gap:8px}
+.mode{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:#1f2937}
+.mode.active{background:rgba(34,211,238,.15);border-color:var(--cyan);color:var(--cyan)}
+.pipeline{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0;font-size:11px}
+.pipe{padding:4px 8px;border-radius:6px;background:#1f2937;border:1px solid var(--border)}
+.pipe.ok{border-color:rgba(52,211,153,.4);color:var(--emerald)}
+.injectors{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script type="text/babel">
 function App() {
-  const [mode, setMode] = React.useState('Normal');
   const [latency, setLatency] = React.useState(0.000000001);
-  const [compliance, setCompliance] = React.useState(99.99);
-  const [entangled, setEntangled] = React.useState(true);
-  const [log, setLog] = React.useState([]);
-  const canvasRef = React.useRef();
+  const [threats, setThreats] = React.useState(0);
+  const [mode, setMode] = React.useState('NORMAL');
+  const [beacon, setBeacon] = React.useState('ENTANGLED');
+  const [entropy, setEntropy] = React.useState(0.21);
+  const [qsilEpistemic, setQsilEpistemic] = React.useState('VERIFIED');
+  const [qsilDeontic, setQsilDeontic] = React.useState('99.99%');
+  const [payment, setPayment] = React.useState('PROTECTED');
+  const [forecast, setForecast] = React.useState('STABLE');
+  const [logs, setLogs] = React.useState([
+    '[INIT] SovereignMesh QPF v59 online · Prediktivní QSIL · EntropyMonitor predictive collapse · AF_XDP <0.000000001 ns',
+    '[QSIL] Epistemic knowledge states VERIFIED · Deontic obligation engine active · dynamic from signed TI',
+    '[ENTROPY] Enhanced EntropyMonitor · predictive collapse forecasting · Shannon/Rényi/Tsallis multi-dim',
+    '[BEACON] Bell-state multi-node correlation · ENTANGLED',
+    '[PAY] Full SovereignMesh-Pay · QTTCP zero-HoL + QSIL · zero head-of-line',
+    '[TI] Signed threat intelligence · hardware entropy (TPM/RDRAND)'
+  ]);
+  const [running, setRunning] = React.useState(true);
 
   React.useEffect(() => {
+    if (!running) return;
     const t = setInterval(() => {
-      setLatency(0.000000001 + Math.random()*0.0000000005);
-      setCompliance(99.95 + Math.random()*0.04);
-      if (Math.random() > 0.7) {
-        setLog(prev => [{ts: new Date().toISOString().slice(11,19), msg: 'QSIL pulse OK', type:'ok'}, ...prev.slice(0,8)]);
+      const base = mode === 'STRESS' ? 0.00000001 : mode === 'AIRGAP' ? 0.000000001 : 0.000000001;
+      setLatency(base + Math.random() * 0.0000000005);
+      setEntropy(0.15 + Math.random() * 0.14);
+      if (Math.random() > 0.92) {
+        setThreats(x => x + 1);
+        addLog('[DROP] Prediktivní QSIL collapse / multi-dim entropy anomaly blocked');
+        setForecast('ANOMALY FORECAST');
+      } else if (Math.random() > 0.7) {
+        setForecast('STABLE');
       }
-    }, 1200);
+      if (Math.random() > 0.96) setBeacon(b => b === 'ENTANGLED' ? 'COLLAPSE' : 'ENTANGLED');
+    }, 700);
     return () => clearInterval(t);
-  }, []);
+  }, [running, mode]);
 
-  React.useEffect(() => {
-    const c = canvasRef.current;
-    if (!c) return;
-    const ctx = c.getContext('2d');
-    let id;
-    const draw = () => {
-      c.width = c.clientWidth; c.height = 180;
-      ctx.clearRect(0,0,c.width,c.height);
-      const nodes = [{x:0.15,y:0.5},{x:0.4,y:0.3},{x:0.6,y:0.7},{x:0.85,y:0.5}];
-      nodes.forEach((n,i) => {
-        ctx.beginPath(); ctx.arc(n.x*c.width, n.y*c.height, 10, 0, Math.PI*2);
-        ctx.fillStyle = entangled ? '#a855f7' : '#64748b'; ctx.fill();
-        if (i < nodes.length-1) {
-          ctx.strokeStyle = 'rgba(168,85,247,0.4)';
-          ctx.beginPath(); ctx.moveTo(n.x*c.width, n.y*c.height);
-          ctx.lineTo(nodes[i+1].x*c.width, nodes[i+1].y*c.height); ctx.stroke();
-        }
-      });
-      id = requestAnimationFrame(draw);
-    };
-    draw();
-    return () => cancelAnimationFrame(id);
-  }, [entangled]);
+  function addLog(msg) {
+    setLogs(prev => [`[${new Date().toLocaleTimeString()}] ${msg}`, ...prev].slice(0, 24));
+  }
+
+  function inject(type) {
+    if (type === 'clean') { addLog('[PASS] Clean flow · QSIL deontic obligation verified'); setPayment('PROTECTED'); }
+    if (type === 'ioc') { setThreats(x => x + 3); addLog('[DROP] Signed TI IOC match → XDP DROP'); }
+    if (type === 'entropy') { setThreats(x => x + 2); addLog('[DROP] EntropyMonitor predictive collapse · Bell-state correlation fail'); setBeacon('COLLAPSE'); setForecast('COLLAPSE FORECAST'); }
+    if (type === 'scan') { setThreats(x => x + 1); addLog('[DROP] Predictive multi-node pattern · QSIL verdict'); }
+    if (type === 'payment') { addLog('[ALLOW] PAYMENT QTTCP · epistemic OK · deontic MUST_ALLOW · zero-HoL'); setPayment('PROTECTED'); }
+    if (type === 'forecast') { addLog('[QSIL] Predictive collapse forecast updated · multi-dim entropy'); setForecast('UPDATED'); }
+  }
 
   return (
-    <div style={{padding:20, maxWidth:1100, margin:'0 auto'}}>
-      <h1 style={{background:'linear-gradient(90deg,#22d3ee,#a855f7)', WebkitBackgroundClip:'text', color:'transparent'}}>
-        SovereignMesh QPF v59 – Operations Console
-      </h1>
-      <p style={{color:'#94a3b8'}}>Prediktivní zabezpečovací firewall · Kvantová provázanost · QSIL</p>
+    <>
+      <header>
+        <div>
+          <h1>SovereignMesh QPF v59</h1>
+          <div className="sub">Operations Console · Prediktivní QSIL · EntropyMonitor collapse forecasting · AF_XDP model &lt;0.000000001 ns · Full Pay</div>
+        </div>
+        <div className="controls">
+          <div className="mode-bar">
+            {['NORMAL','STRESS','AIRGAP'].map(m => (
+              <span key={m} className={`mode ${mode===m?'active':''}`} onClick={()=>setMode(m)}>{m}</span>
+            ))}
+          </div>
+          <button className="btn emerald" onClick={()=>setRunning(!running)}>{running ? 'Simulation Active' : 'Paused'}</button>
+        </div>
+      </header>
+      <main>
+        <div className="grid4">
+          <div className="card"><div className="label">Path Latency</div><div className="metric cyan">{latency.toExponential(2)} ns</div><div className="label">AF_XDP zero-copy · &lt;0.000000001 ns</div></div>
+          <div className="card"><div className="label">QSIL Epistemic</div><div className="metric purple">{qsilEpistemic}</div><div className="label">Knowledge states</div></div>
+          <div className="card"><div className="label">Beacon</div><div className="metric emerald">{beacon}</div><div className="label">Bell-state multi-node</div></div>
+          <div className="card"><div className="label">Payment Stack</div><div className="metric cyan">{payment}</div><div className="label">QTTCP zero-HoL + QSIL</div></div>
+        </div>
 
-      <div style={{display:'flex', gap:12, marginBottom:16}}>
-        {['Normal','Stress','Air-Gap'].map(m => (
-          <button key={m} className={mode===m?'active':''} onClick={()=>setMode(m)}>{m}</button>
-        ))}
-        <button onClick={()=>setEntangled(!entangled)}>{entangled ? 'Entangled' : 'Collapsed'}</button>
-      </div>
+        <div className="card">
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:8}}>
+            <strong>Mesh Topology · Entanglement Pulses · Predictive</strong>
+            <div style={{fontSize:11,color:'#9ca3af'}}>Beacon: {beacon} · Entropy: {entropy.toFixed(2)} · Forecast: {forecast}</div>
+          </div>
+          <div className="canvas-wrap">
+            <canvas id="mesh" width="1200" height="220"></canvas>
+          </div>
+        </div>
 
-      <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:12, marginBottom:16}}>
-        <div className="card"><div>Latency model</div><div className="metric">{latency.toExponential(2)} ns</div></div>
-        <div className="card"><div>QSIL compliance</div><div className="metric ok">{compliance.toFixed(2)}%</div></div>
-        <div className="card"><div>Beacon</div><div className="metric">{entangled ? 'ENTANGLED' : 'COLLAPSE'}</div></div>
-        <div className="card"><div>Mode</div><div className="metric">{mode}</div></div>
-      </div>
+        <div className="card">
+          <div className="pipeline">
+            <span className="pipe ok">Ingress</span>
+            <span className="pipe ok">XDP</span>
+            <span className="pipe ok">TI</span>
+            <span className="pipe ok">Entropy</span>
+            <span className="pipe ok">QSIL</span>
+            <span className="pipe ok">Forecast</span>
+            <span className="pipe ok">Verdict</span>
+          </div>
+          <div className="injectors">
+            <button className="btn" onClick={()=>inject('clean')}>Inject Clean</button>
+            <button className="btn rose" onClick={()=>inject('ioc')}>Inject IOC</button>
+            <button className="btn amber" onClick={()=>inject('entropy')}>Inject Entropy</button>
+            <button className="btn" onClick={()=>inject('scan')}>Inject Scan</button>
+            <button className="btn emerald" onClick={()=>inject('payment')}>Inject Payment</button>
+            <button className="btn" onClick={()=>inject('forecast')}>Update Forecast</button>
+            <button className="btn" onClick={()=>setThreats(0)}>Reset Counters</button>
+          </div>
+          <div style={{marginTop:8,fontSize:12,color:'#9ca3af'}}>Threats blocked: {threats} · QSIL Deontic: {qsilDeontic} · Predictive Forecast: {forecast}</div>
+        </div>
 
-      <div className="card" style={{marginBottom:16}}>
-        <div>Mesh topology (live)</div>
-        <canvas ref={canvasRef} />
-      </div>
+        <div className="card">
+          <strong>Activity Log · Prediktivní QSIL · EntropyMonitor · Full Pay · AF_XDP &lt;0.000000001 ns</strong>
+          <div className="log">
+            {logs.map((l,i) => <div key={i}>{l}</div>)}
+          </div>
+        </div>
 
-      <div className="card">
-        <div>Activity</div>
-        {log.map((l,i) => <div key={i} style={{fontSize:12, fontFamily:'monospace'}}>[{l.ts}] {l.msg}</div>)}
-      </div>
-    </div>
+        <p style={{fontSize:11,color:'#6b7280',textAlign:'center',marginTop:8}}>
+          Sanitized operations console. Source code, official records and detailed mechanisms are not published.<br/>
+          Deploy: commercial Linux · USB &lt;30 min · air-gap capable · AF_XDP model &lt;0.000000001 ns · Prediktivní QSIL · Full SovereignMesh-Pay.
+        </p>
+      </main>
+    </>
   );
 }
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+
+// Mesh canvas animation
+const c = document.getElementById('mesh');
+const ctx = c.getContext('2d');
+const nodes = [
+  {x:80,y:100,l:'Client'},
+  {x:250,y:50,l:'Gateway'},
+  {x:450,y:150,l:'Pay Node'},
+  {x:650,y:70,l:'Ledger'},
+  {x:850,y:110,l:'Air-Gap'}
+];
+function drawMesh() {
+  if (!c) return;
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.strokeStyle = 'rgba(167,139,250,0.45)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(nodes[0].x,nodes[0].y);
+  for(let i=1;i<nodes.length;i++) ctx.lineTo(nodes[i].x,nodes[i].y);
+  ctx.stroke();
+  nodes.forEach(n => {
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 10, 0, Math.PI*2);
+    ctx.fillStyle = '#0f172a';
+    ctx.fill();
+    ctx.strokeStyle = '#a78bfa';
+    ctx.stroke();
+    ctx.fillStyle = '#e5e7eb';
+    ctx.font = '11px system-ui';
+    ctx.textAlign = 'center';
+    ctx.fillText(n.l, n.x, n.y + 26);
+  });
+  const t = Date.now() / 700;
+  nodes.forEach((n,i) => {
+    if (i < nodes.length-1) {
+      const p = (t + i*0.25) % 1;
+      const x = n.x + (nodes[i+1].x - n.x) * p;
+      const y = n.y + (nodes[i+1].y - n.y) * p;
+      ctx.beginPath();
+      ctx.arc(x,y,4,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(34,211,238,0.85)';
+      ctx.fill();
+    }
+  });
+  requestAnimationFrame(drawMesh);
+}
+drawMesh();
 </script>
 </body>
 </html>
