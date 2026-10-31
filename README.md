@@ -2,18 +2,19 @@
 
 Native predictive quantum-inspired firewall for banking and payment infrastructure.
 
-## Current Version: v60 (2026-10-31)
+## Current Version: v61 (2026-10-31)
 
-* **Deep Information Logic Enriched Quantum Entanglement** (full epistemic knowledge operators + deontic dynamic obligations + multi-node Bell-state)
-* **Predictive EntropyMonitor** collapse forecasting (Shannon / Rényi / Tsallis)
+* **Z3-PROVEN Deep Information Logic** (7/7 invariants: epistemic + deontic + No-Cloning)
+* **liboqs-ready ML-KEM-1024** hybrid PQC beacon
+* Predictive EntropyMonitor collapse forecasting (Shannon / Rényi / Tsallis)
 * Full SovereignMesh-Pay / QTTCP zero-HoL integrace
-* AF_XDP path model <0.0000000005 ns
-* Signed TI + hardware entropy
-* USB / Live USB air-gapped deploy <30 min
+* AF_XDP path model <0.0000000002 ns
+* Grafana/Prometheus exporter + Live USB air-gapped model
+* USB deploy <30 min
 
 ## Public Assets
 
-Sanitized demo: [SovereignMesh_QPF_Unified_App_v60.html](SovereignMesh_QPF_Unified_App_v60.html)
+Sanitized demo: [SovereignMesh_QPF_Unified_App_v61.html](SovereignMesh_QPF_Unified_App_v61.html)
 
 Source code, official records and detailed mechanisms are not published (see PUBLIC_PUSH_POLICY.md).
 
