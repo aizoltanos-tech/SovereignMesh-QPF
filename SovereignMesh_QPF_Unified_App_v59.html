@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v59 – Operations Console</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+body { margin:0; background:#0f172a; color:#e2e8f0; font-family:system-ui,sans-serif; }
+.card { background:#1e293b; border:1px solid #334155; border-radius:12px; padding:16px; }
+.metric { font-size:1.8rem; font-weight:700; color:#22d3ee; }
+.ok { color:#34d399; } .warn { color:#fbbf24; }
+button { background:#334155; color:#e2e8f0; border:1px solid #475569; border-radius:8px; padding:6px 12px; cursor:pointer; }
+button.active { background:#0e7490; border-color:#22d3ee; }
+canvas { width:100%; height:180px; background:#020617; border-radius:8px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+function App() {
+  const [mode, setMode] = React.useState('Normal');
+  const [latency, setLatency] = React.useState(0.000000001);
+  const [compliance, setCompliance] = React.useState(99.99);
+  const [entangled, setEntangled] = React.useState(true);
+  const [log, setLog] = React.useState([]);
+  const canvasRef = React.useRef();
+
+  React.useEffect(() => {
+    const t = setInterval(() => {
+      setLatency(0.000000001 + Math.random()*0.0000000005);
+      setCompliance(99.95 + Math.random()*0.04);
+      if (Math.random() > 0.7) {
+        setLog(prev => [{ts: new Date().toISOString().slice(11,19), msg: 'QSIL pulse OK', type:'ok'}, ...prev.slice(0,8)]);
+      }
+    }, 1200);
+    return () => clearInterval(t);
+  }, []);
+
+  React.useEffect(() => {
+    const c = canvasRef.current;
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    let id;
+    const draw = () => {
+      c.width = c.clientWidth; c.height = 180;
+      ctx.clearRect(0,0,c.width,c.height);
+      const nodes = [{x:0.15,y:0.5},{x:0.4,y:0.3},{x:0.6,y:0.7},{x:0.85,y:0.5}];
+      nodes.forEach((n,i) => {
+        ctx.beginPath(); ctx.arc(n.x*c.width, n.y*c.height, 10, 0, Math.PI*2);
+        ctx.fillStyle = entangled ? '#a855f7' : '#64748b'; ctx.fill();
+        if (i < nodes.length-1) {
+          ctx.strokeStyle = 'rgba(168,85,247,0.4)';
+          ctx.beginPath(); ctx.moveTo(n.x*c.width, n.y*c.height);
+          ctx.lineTo(nodes[i+1].x*c.width, nodes[i+1].y*c.height); ctx.stroke();
+        }
+      });
+      id = requestAnimationFrame(draw);
+    };
+    draw();
+    return () => cancelAnimationFrame(id);
+  }, [entangled]);
+
+  return (
+    <div style={{padding:20, maxWidth:1100, margin:'0 auto'}}>
+      <h1 style={{background:'linear-gradient(90deg,#22d3ee,#a855f7)', WebkitBackgroundClip:'text', color:'transparent'}}>
+        SovereignMesh QPF v59 – Operations Console
+      </h1>
+      <p style={{color:'#94a3b8'}}>Prediktivní zabezpečovací firewall · Kvantová provázanost · QSIL</p>
+
+      <div style={{display:'flex', gap:12, marginBottom:16}}>
+        {['Normal','Stress','Air-Gap'].map(m => (
+          <button key={m} className={mode===m?'active':''} onClick={()=>setMode(m)}>{m}</button>
+        ))}
+        <button onClick={()=>setEntangled(!entangled)}>{entangled ? 'Entangled' : 'Collapsed'}</button>
+      </div>
+
+      <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:12, marginBottom:16}}>
+        <div className="card"><div>Latency model</div><div className="metric">{latency.toExponential(2)} ns</div></div>
+        <div className="card"><div>QSIL compliance</div><div className="metric ok">{compliance.toFixed(2)}%</div></div>
+        <div className="card"><div>Beacon</div><div className="metric">{entangled ? 'ENTANGLED' : 'COLLAPSE'}</div></div>
+        <div className="card"><div>Mode</div><div className="metric">{mode}</div></div>
+      </div>
+
+      <div className="card" style={{marginBottom:16}}>
+        <div>Mesh topology (live)</div>
+        <canvas ref={canvasRef} />
+      </div>
+
+      <div className="card">
+        <div>Activity</div>
+        {log.map((l,i) => <div key={i} style={{fontSize:12, fontFamily:'monospace'}}>[{l.ts}] {l.msg}</div>)}
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
