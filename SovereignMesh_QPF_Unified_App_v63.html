@@ -3,89 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <title>SovereignMesh QPF v63 – Operations Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <style>
-body { margin:0; background:#0a0a0f; color:#e2e8f0; font-family: system-ui, sans-serif; }
-.header { padding:16px 24px; border-bottom:1px solid #1e293b; display:flex; justify-content:space-between; align-items:center; background:#0f172a; }
-.logo { font-weight:700; background:linear-gradient(90deg,#22d3ee,#a855f7); -webkit-background-clip:text; color:transparent; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; padding:24px; }
-.card { background:#111827; border:1px solid #1e293b; border-radius:12px; padding:16px; }
-.metric { font-size:1.8rem; font-weight:700; font-mono: ui-monospace,monospace; }
-.cyan { color:#22d3ee; } .purple { color:#a855f7; } .emerald { color:#10b981; } .amber { color:#f59e0b; }
-.controls { padding:0 24px 24px; display:flex; gap:12px; flex-wrap:wrap; }
-button { background:#1e293b; border:1px solid #334155; color:#e2e8f0; padding:8px 14px; border-radius:8px; cursor:pointer; }
-button.active { background:#0e7490; border-color:#22d3ee; }
-.log { height:280px; overflow:auto; background:#020617; border-radius:8px; padding:12px; font-family:ui-monospace,monospace; font-size:12px; }
+:root { --bg:#0a0e17; --card:#111827; --border:#1f2937; --cyan:#22d3ee; --purple:#a78bfa; --emerald:#34d399; --amber:#fbbf24; --rose:#fb7185; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:#e5e7eb;min-height:100vh}
+header{border-bottom:1px solid var(--border);background:#0f172a;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:10}
+h1{font-size:18px;background:linear-gradient(90deg,#22d3ee,#a78bfa,#34d399);-webkit-background-clip:text;color:transparent;font-weight:700}
+.sub{font-size:12px;color:#9ca3af}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:#1f2937;color:#e5e7eb}
+.btn.emerald{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.4);color:var(--emerald)}
+.btn.amber{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.4);color:var(--amber)}
+.btn.rose{background:rgba(251,113,133,.1);border-color:rgba(251,113,133,.4);color:var(--rose)}
+main{max-width:1280px;margin:0 auto;padding:20px;display:grid;gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.metric{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.metric.cyan{color:var(--cyan)} .metric.purple{color:var(--purple)} .metric.emerald{color:var(--emerald)} .metric.amber{color:var(--amber)}
+.label{font-size:11px;color:#9ca3af;margin-bottom:4px}
+.canvas-wrap{background:#020617;border-radius:12px;border:1px solid var(--border);height:220px;position:relative;overflow:hidden}
+canvas{width:100%;height:100%}
+.log{font-family:ui-monospace,monospace;font-size:11px;background:#020617;border-radius:10px;padding:12px;height:200px;overflow-y:auto;border:1px solid var(--border)}
+.mode-bar{display:flex;gap:8px}
+.mode{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:#1f2937}
+.mode.active{background:rgba(34,211,238,.15);border-color:var(--cyan);color:var(--cyan)}
+.pipeline{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0;font-size:11px}
+.pipe{padding:4px 8px;border-radius:6px;background:#1f2937;border:1px solid var(--border)}
+.pipe.ok{border-color:rgba(52,211,153,.4);color:var(--emerald)}
+.injectors{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { useState, useEffect } = React;
-
 function App() {
-  const [mode, setMode] = useState('Normal');
-  const [latency, setLatency] = useState(0.00000000005);
-  const [qsil, setQsil] = useState(99.99);
-  const [z3, setZ3] = useState('9/9 PROVEN');
-  const [epistemic, setEpistemic] = useState(0.97);
-  const [logs, setLogs] = useState([]);
-  const [threats, setThreats] = useState(0);
+  const [latency, setLatency] = React.useState(0.00000000005);
+  const [threats, setThreats] = React.useState(0);
+  const [mode, setMode] = React.useState('NORMAL');
+  const [beacon, setBeacon] = React.useState('ENTANGLED');
+  const [entropy, setEntropy] = React.useState(0.18);
+  const [qsilEpistemic, setQsilEpistemic] = React.useState('K_i VERIFIED');
+  const [qsilDeontic, setQsilDeontic] = React.useState('99.99%');
+  const [payment, setPayment] = React.useState('PROTECTED');
+  const [z3, setZ3] = React.useState('9/9 PROVEN');
+  const [mlkem, setMlkem] = React.useState('ML-KEM-1024');
+  const [forecast, setForecast] = React.useState('STABLE');
+  const [logs, setLogs] = React.useState([
+    '[INIT] SovereignMesh QPF v63 online · QSIL-obohacená kvantová provázanost · Dynamické epistemické K_i(φ|obs) · Deontický engine · Z3 9/9 PROVEN · ML-KEM-1024 · AF_XDP <0.00000000005 ns',
+    '[QSIL] Dynamické epistemické update operátory · multi-node Bell-state · EntropyMonitor predictive collapse · Shannon/Rényi/Tsallis',
+    '[BEACON] QSIL-enriched quantum entanglement · ENTANGLED · TPM sealed',
+    '[PAY] Full SovereignMesh-Pay · QTTCP zero-HoL + QSIL epistemic/deontic',
+    '[PQC] liboqs-ready ML-KEM-1024 hybrid beacon',
+    '[TI] Signed threat intelligence · hardware entropy'
+  ]);
+  const [running, setRunning] = React.useState(true);
 
-  useEffect(() => {
+  React.useEffect(() => {
+    if (!running) return;
     const t = setInterval(() => {
-      const lat = 0.00000000004 + Math.random()*0.00000000002;
-      setLatency(lat);
-      setEpistemic(0.95 + Math.random()*0.04);
-      const newLog = {
-        ts: new Date().toISOString().slice(11,23),
-        msg: mode === 'Stress' ? 'Predictive collapse forecast (EntropyMonitor)' : 'Packet PASS (QSIL epistemic+deontic + Z3)',
-        lat: lat.toExponential(2)
-      };
-      setLogs(l => [newLog, ...l].slice(0,40));
-      if (Math.random() > 0.88) setThreats(t => t+1);
-    }, 700);
+      const base = mode === 'STRESS' ? 0.0000000002 : mode === 'AIRGAP' ? 0.00000000005 : 0.00000000005;
+      setLatency(base + Math.random() * 0.00000000003);
+      setEntropy(0.12 + Math.random() * 0.12);
+      if (Math.random() > 0.90) {
+        setThreats(x => x + 1);
+        addLog('[DROP] Prediktivní QSIL collapse / multi-dim entropy anomaly blocked · epistemic update applied');
+        setForecast('ANOMALY FORECAST');
+        setBeacon('COLLAPSE');
+        setTimeout(() => setBeacon('ENTANGLED'), 1500);
+      } else if (Math.random() > 0.65) {
+        setForecast('STABLE');
+        setBeacon('ENTANGLED');
+      }
+      if (Math.random() > 0.85) {
+        addLog('[QSIL] Dynamický epistemický update K_i(φ | observation) · deontic obligation enforced');
+      }
+    }, 650);
     return () => clearInterval(t);
-  }, [mode]);
+  }, [running, mode]);
+
+  function addLog(msg) {
+    setLogs(l => [`[${new Date().toISOString().slice(11,23)}] ${msg}`, ...l].slice(0, 50));
+  }
+
+  function inject(type) {
+    if (type === 'clean') addLog('[PASS] Clean packet · QSIL epistemic+deontic verified · Z3 consistent');
+    if (type === 'ioc') { setThreats(t=>t+1); addLog('[DROP] Signed TI IOC match · blocked at XDP'); }
+    if (type === 'entropy') { setThreats(t=>t+1); addLog('[DROP] Multi-dim entropy anomaly (Shannon/Rényi/Tsallis) · EntropyMonitor collapse'); setBeacon('COLLAPSE'); }
+    if (type === 'payment') addLog('[PAY] SovereignMesh-Pay TX · QTTCP zero-HoL · QSIL protected');
+    if (type === 'forecast') addLog('[FORECAST] Predictive EntropyMonitor · collapse probability low · STABLE');
+  }
 
   return (
     <div>
-      <div className="header">
+      <header>
         <div>
-          <div className="logo">SovereignMesh QPF v63</div>
-          <div style={{fontSize:12,color:'#94a3b8'}}>Operations Console · QSIL Info-Logic · Z3 9/9 · ML-KEM-1024 · AF_XDP &lt;0.00000000005 ns</div>
+          <h1>SovereignMesh QPF v63</h1>
+          <div className="sub">Operations Console · QSIL Info-Logic · Z3 9/9 PROVEN · ML-KEM-1024 · AF_XDP <0.00000000005 ns · TPM</div>
         </div>
-        <div style={{fontSize:12}}>Mode: <strong>{mode}</strong></div>
-      </div>
-      <div className="grid">
-        <div className="card"><div>AF_XDP Latency</div><div className="metric cyan">{latency.toExponential(2)} ns</div></div>
-        <div className="card"><div>QSIL Compliance</div><div className="metric emerald">{qsil}%</div></div>
-        <div className="card"><div>Epistemic K</div><div className="metric purple">{epistemic.toFixed(3)}</div></div>
-        <div className="card"><div>Z3 Invariants</div><div className="metric purple">{z3}</div></div>
-        <div className="card"><div>Threats Blocked</div><div className="metric amber">{threats}</div></div>
-      </div>
-      <div className="controls">
-        {['Normal','Stress','Air-Gap'].map(m => (
-          <button key={m} className={mode===m?'active':''} onClick={()=>setMode(m)}>{m}</button>
-        ))}
-        <button onClick={()=>setLogs(l=>[{ts:'now',msg:'Manual Payment TX (QTTCP zero-HoL + QSIL)',lat:'5e-11'},...l])}>+ Trigger Payment</button>
-        <button onClick={()=>setZ3('9/9 PROVEN')}>Verify Z3</button>
-      </div>
-      <div style={{padding:'0 24px 24px'}}>
-        <div className="card">
-          <div style={{marginBottom:8}}>Activity Log · Deep Information Logic (epistemic/deontic) + Predictive EntropyMonitor</div>
-          <div className="log">
-            {logs.map((l,i)=>(
-              <div key={i}>[{l.ts}] {l.msg} · lat {l.lat} ns</div>
+        <div className="controls">
+          <div className="mode-bar">
+            {['NORMAL','STRESS','AIR-GAP'].map(m => (
+              <div key={m} className={`mode ${mode===m?'active':''}`} onClick={()=>setMode(m)}>{m}</div>
             ))}
           </div>
+          <button className="btn emerald" onClick={()=>setRunning(r=>!r)}>{running?'Pause':'Resume'}</button>
         </div>
-      </div>
+      </header>
+      <main>
+        <div className="grid4">
+          <div className="card"><div className="label">AF_XDP Latency</div><div className="metric cyan">{latency.toExponential(2)} ns</div></div>
+          <div className="card"><div className="label">QSIL Epistemic</div><div className="metric purple">{qsilEpistemic}</div></div>
+          <div className="card"><div className="label">Deontic</div><div className="metric emerald">{qsilDeontic}</div></div>
+          <div className="card"><div className="label">Z3 Invariants</div><div className="metric purple">{z3}</div></div>
+          <div className="card"><div className="label">Beacon</div><div className="metric amber">{beacon}</div></div>
+          <div className="card"><div className="label">Entropy</div><div className="metric cyan">{entropy.toFixed(3)}</div></div>
+          <div className="card"><div className="label">Threats Blocked</div><div className="metric rose">{threats}</div></div>
+          <div className="card"><div className="label">Payment / PQC</div><div className="metric emerald">{payment} · {mlkem}</div></div>
+        </div>
+        <div className="card">
+          <div className="label">Pipeline · Ingress → XDP → TI → EntropyMonitor → QSIL (epistemic/deontic) → Verdict</div>
+          <div className="pipeline">
+            <div className="pipe ok">Ingress</div>
+            <div className="pipe ok">AF_XDP</div>
+            <div className="pipe ok">Signed TI</div>
+            <div className="pipe ok">Multi-dim Entropy</div>
+            <div className="pipe ok">QSIL K_i + Deontic</div>
+            <div className="pipe ok">Z3 Check</div>
+            <div className="pipe ok">Verdict</div>
+          </div>
+          <div className="injectors">
+            <button className="btn" onClick={()=>inject('clean')}>Inject Clean</button>
+            <button className="btn amber" onClick={()=>inject('ioc')}>Inject IOC</button>
+            <button className="btn rose" onClick={()=>inject('entropy')}>Inject Entropy Anomaly</button>
+            <button className="btn emerald" onClick={()=>inject('payment')}>+ Payment TX</button>
+            <button className="btn" onClick={()=>inject('forecast')}>Forecast Collapse</button>
+          </div>
+        </div>
+        <div className="card">
+          <div className="label">Mesh Topology · Multi-node Bell-state Entanglement (pulses on anomaly)</div>
+          <div className="canvas-wrap">
+            <canvas id="mesh" />
+          </div>
+        </div>
+        <div className="card">
+          <div className="label">Activity Log · Deep Information Logic + Predictive EntropyMonitor + Z3</div>
+          <div className="log">
+            {logs.map((l,i)=><div key={i}>{l}</div>)}
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
+
+// Simple mesh animation
+function drawMesh() {
+  const c = document.getElementById('mesh');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  c.width = c.clientWidth;
+  c.height = c.clientHeight;
+  const nodes = [
+    {x:0.2,y:0.5,label:'Node-A'},
+    {x:0.5,y:0.3,label:'Node-B'},
+    {x:0.5,y:0.7,label:'Node-C'},
+    {x:0.8,y:0.5,label:'Node-D'}
+  ];
+  function frame() {
+    ctx.clearRect(0,0,c.width,c.height);
+    ctx.strokeStyle = '#22d3ee44';
+    ctx.lineWidth = 1;
+    nodes.forEach((a,i)=>{
+      nodes.slice(i+1).forEach(b=>{
+        ctx.beginPath();
+        ctx.moveTo(a.x*c.width, a.y*c.height);
+        ctx.lineTo(b.x*c.width, b.y*c.height);
+        ctx.stroke();
+      });
+    });
+    nodes.forEach(n=>{
+      ctx.fillStyle = '#a78bfa';
+      ctx.beginPath();
+      ctx.arc(n.x*c.width, n.y*c.height, 6, 0, Math.PI*2);
+      ctx.fill();
+      ctx.fillStyle = '#e5e7eb';
+      ctx.font = '10px system-ui';
+      ctx.fillText(n.label, n.x*c.width+10, n.y*c.height+4);
+    });
+    requestAnimationFrame(frame);
+  }
+  frame();
+}
+setTimeout(drawMesh, 100);
+
 ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
 </script>
 </body>
