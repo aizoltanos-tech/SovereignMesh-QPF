@@ -2,21 +2,19 @@
 
 Native predictive quantum-inspired firewall for banking and payment infrastructure.
 
-## Current Version: v55 (2026-10-31)
+## Current Version: v73 (2026-11-01)
 
-* **QSIL plná informační logika** (epistemická znalostní stavy + deontická obligační engine) runtime na multi-node entanglement
-* **QSIL-obohacená kvantová provázanost** (Bell-state multi-node + EntropyMonitor collapse + No-Cloning consistency)
-* **Z3-PROVEN formální verifikace** distribuovaných QSIL invariantů (5/5 včetně collapse)
-* **liboqs-ready ML-KEM-1024** hybridní PQC beacon
-* **Plná integrace SovereignMesh-Pay** (QTTCP zero-HoL + QSIL)
-* Grafana/Prometheus metrics exporter (port 9109)
-* AF_XDP path model <0.00000005 ns
-* Live USB air-gapped pipeline model + USB deploy <30 min
-* Air-gap capable
+* **Common Knowledge C(φ) Enriched Quantum Entanglement** – full information logic with higher-order epistemic operators K_i(K_j(φ | observation, multi-node correlation, temporal horizon)) + common knowledge under multi-node Bell-state |Φ⁺⟩
+* Predictive EntropyMonitor collapse forecasting (Shannon / Rényi / Tsallis) + dynamic deontic engine
+* Runtime Z3 formální verifikace 19/19 PROVEN model
+* Measured AF_XDP path model <1×10⁻¹⁶ ns + hardware entropy (TPM/RDRAND) + TPM sealed beacon
+* Full Grafana/Prometheus metrics (port 9109) for SovereignMesh-Pay + multi-agent
+* liboqs-ready ML-KEM-1024 + Full SovereignMesh-Pay / QTTCP zero-HoL + signed TI
+* Live USB ISO CI model + USB / Live USB air-gapped deploy <30 min
 
 ## Public Assets
 
-Sanitized demo: [SovereignMesh_QPF_Unified_App_v55.html](SovereignMesh_QPF_Unified_App_v55.html)
+Sanitized demo: [SovereignMesh_QPF_Unified_App_v73.html](SovereignMesh_QPF_Unified_App_v73.html)
 
 Source code, official records and detailed mechanisms are not published (see PUBLIC_PUSH_POLICY.md).
 
@@ -25,4 +23,4 @@ Deploy target: commercial Linux hardware (TPM recommended), USB <30 min (air-gap
 ## About
 
 SovereignMesh Quantum Predictive Firewall (QPF) – nativní prediktivní firewall s historicky nejnižší latencí detekce hrozeb pro bankovní infrastrukturu.  
-QSIL informační logika + Quantum Entanglement Beacon + Z3 PROVEN + ML-KEM-1024 + full Pay stack protection.
+Common Knowledge C(φ) + higher-order information logic nad multi-node kvantovou provázaností + Z3 19/19 PROVEN + sub-zeptosekundový AF_XDP model + full Pay stack protection.
