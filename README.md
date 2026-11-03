@@ -1,26 +1,30 @@
 # SovereignMesh-QPF
 
-Native predictive quantum-inspired firewall for banking and payment infrastructure.
+**Public demonstration repository** for the SovereignMesh Quantum Predictive Firewall (QPF) operator console.
 
-## Current Version: v89 (2026-11-02)
+This repository is intentionally minimal.  
+It contains only a sanitized operations console UI and high-level status information suitable for public view.
 
-* **Deep Information Logic Enriched Quantum Entanglement** – dynamic higher-order epistemic K_i(K_j(φ | observation, multi-node, temporal multi-horizon, payment, TI, C(C_G(φ)))) + deontic engine zero-HoL + multi-node Bell-state |Φ⁺⟩ + EntropyMonitor predictive multi-horizon collapse (Shannon/Rényi/Tsallis)
-* Measured SmartNIC/DPU AF_XDP path model <1×10⁻³¹ ns
-* Runtime Z3 formální verifikace 35/35 PROVEN under predictive multi-horizon epistemic operators + TI observations
-* Full Native SovereignMesh-Pay Dashboard Integration (QTTCP zero-HoL + QSIL epistemic/deontic)
-* liboqs-ready ML-KEM-1024 + signed TI + hardware entropy + seL4-inspired isolation
-* USB / Live USB air-gapped deploy <30 min
-* Real-time connection to global TI databases (CISA KEV style + predictive multi-horizon feeds)
+## Current public demo
 
-## Public Assets
+- **Version:** v112 (2026-11-03)
+- **Demo UI:** [SovereignMesh_QPF_Unified_App_v112.html](SovereignMesh_QPF_Unified_App_v112.html)
+- **Purpose:** Operator-facing demonstration of status indicators, modes, mesh visualization and activity log for a predictive firewall concept aimed at banking and payment infrastructure.
 
-Sanitized demo: [SovereignMesh_QPF_Unified_App_v89.html](SovereignMesh_QPF_Unified_App_v89.html)
+## What is *not* published here
 
-Source code, official records and detailed mechanisms are not published (see PUBLIC_PUSH_POLICY.md).
+In accordance with PUBLIC_PUSH_POLICY.md:
 
-Deploy target: commercial Linux hardware (TPM recommended), USB <30 min (air-gap capable).
+- No source code of the firewall or protocol engines
+- No official technical records describing mechanisms
+- No deploy scripts, XDP/eBPF sources, formal proofs, or know-how
+- No continuation notes with implementation detail
 
-## About
+Internal archives remain outside this repository.
 
-SovereignMesh Quantum Predictive Firewall (QPF) – nativní prediktivní firewall s historicky nejnižší latencí detekce hrozeb pro bankovní infrastrukturu.  
-QSIL information logic enriched quantum entanglement + predictive multi-horizon + real-time global TI + measured SmartNIC AF_XDP + native Pay Dashboard + Z3 35/35 PROVEN.
+## Visibility
+
+This repository is intended to be **private**.  
+If it is still public: GitHub → Settings → General → Danger Zone → Change repository visibility → Make private.
+
+© 2026 SovereignMesh / Zoltan OS
