@@ -7,13 +7,13 @@ It contains only a sanitized operations console UI and high-level status informa
 
 ## Current public demo
 
-- **Version:** v127 (2026-11-04)
-- **Demo UI:** [SovereignMesh_QPF_Unified_App_v127.html](SovereignMesh_QPF_Unified_App_v127.html)
+- **Version:** v129 (2026-11-04)
+- **Demo UI:** [SovereignMesh_QPF_Unified_App_v129.html](SovereignMesh_QPF_Unified_App_v129.html)
 - **Purpose:** Operator-facing demonstration of status indicators, modes, mesh visualization and activity log for a predictive firewall concept aimed at banking and payment infrastructure.
 
 ## Internal progress (private archive)
 
-Latest synchronized lineage record (not for public push): private continuation notes for v126.
+Latest synchronized lineage record (not for public push): private continuation notes for v129.
 
 ## What is *not* published here
 
