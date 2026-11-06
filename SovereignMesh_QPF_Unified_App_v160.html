@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v160 – Operations Console</title>
+<style>
+body { margin:0; background:#0f172a; color:#e2e8f0; font-family:system-ui,sans-serif; }
+header { padding:16px 24px; background:#1e293b; border-bottom:1px solid #334155; display:flex; justify-content:space-between; align-items:center; }
+h1 { margin:0; font-size:1.25rem; background:linear-gradient(90deg,#22d3ee,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.badge { background:#065f46; color:#6ee7b7; padding:4px 12px; border-radius:999px; font-size:0.75rem; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; padding:24px; }
+.card { background:#1e293b; border:1px solid #334155; border-radius:12px; padding:16px; }
+.card h3 { margin:0 0 8px; font-size:0.75rem; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; }
+.metric { font-size:1.5rem; font-weight:700; font-family:ui-monospace,monospace; }
+.cyan { color:#22d3ee; } .emerald { color:#34d399; } .purple { color:#a855f7; } .amber { color:#f59e0b; }
+.controls { display:flex; flex-wrap:wrap; gap:8px; padding:0 24px 16px; }
+button { background:#334155; color:#e2e8f0; border:1px solid #475569; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:0.8rem; }
+button.active { background:#0e7490; border-color:#22d3ee; }
+.log { margin:0 24px 24px; background:#020617; border:1px solid #1e293b; border-radius:8px; padding:12px; height:160px; overflow-y:auto; font-family:ui-monospace,monospace; font-size:0.75rem; }
+.log div { padding:2px 0; border-bottom:1px solid #1e293b; padding-bottom:4px; }
+canvas { width:100%; height:180px; background:#020617; border-radius:8px; margin-top:8px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>SovereignMesh-QPF v160</h1>
+    <div style="font-size:0.75rem;color:#94a3b8;">Operations Console · Nested CK C⁵⁰ · AF_XDP <1×10⁻¹⁰¹ ns · Predictive</div>
+  </div>
+  <div class="badge">SIMULATION ACTIVE</div>
+</header>
+
+<div class="grid">
+  <div class="card"><h3>Latency Model</h3><div class="metric cyan"><1×10⁻¹⁰¹ ns</div></div>
+  <div class="card"><h3>Z3 Invariants</h3><div class="metric emerald">107/107 PROVEN</div></div>
+  <div class="card"><h3>Nested CK</h3><div class="metric purple">C⁵⁰ + higher-order</div></div>
+  <div class="card"><h3>Payment Stack</h3><div class="metric amber">PROTECTED</div></div>
+  <div class="card"><h3>Beacon</h3><div class="metric cyan" id="beacon">ENTANGLED</div></div>
+  <div class="card"><h3>TPM</h3><div class="metric emerald">SEALED</div></div>
+</div>
+
+<div class="controls">
+  <button class="active" onclick="setMode('NORMAL')">Normal</button>
+  <button onclick="setMode('STRESS')">Stress</button>
+  <button onclick="setMode('AIRGAP')">Air-Gap</button>
+  <button onclick="inject('clean')">Inject Clean</button>
+  <button onclick="inject('threat')">Inject Threat</button>
+  <button onclick="inject('pay')">Inject Payment</button>
+</div>
+
+<div class="card" style="margin:0 24px 24px;">
+  <h3>Mesh Topology (ZTSM Sidecar) · Predictive Multi-Agent</h3>
+  <canvas id="mesh"></canvas>
+</div>
+
+<div class="log" id="log">
+  <div>[12:00:01] QPF v160 boot · Nested CK C⁵⁰ ACTIVE · Z3 107/107 PROVEN · Predictive Info-Logic Enriched</div>
+  <div>[12:00:02] Beacon ENTANGLED · QTP Bell-state |Φ⁺⟩ + multi-agent temporal predictive QSIL</div>
+</div>
+
+<script>
+const logEl = document.getElementById('log');
+const beaconEl = document.getElementById('beacon');
+function addLog(msg) {
+  const d = document.createElement('div');
+  d.textContent = '[' + new Date().toISOString().substr(11,8) + '] ' + msg;
+  logEl.prepend(d);
+  if (logEl.children.length > 30) logEl.lastChild.remove();
+}
+function setMode(m) {
+  document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  addLog('Mode → ' + m);
+}
+function inject(type) {
+  if (type === 'threat') {
+    beaconEl.textContent = 'COLLAPSE';
+    beaconEl.className = 'metric amber';
+    addLog('THREAT detected · DROP · Beacon COLLAPSE · EntropyMonitor + predictive info-logic observer effect');
+  } else if (type === 'pay') {
+    beaconEl.textContent = 'ENTANGLED';
+    beaconEl.className = 'metric cyan';
+    addLog('PAYMENT QTTCP zero-HoL · ALLOW · Nested CK C⁵⁰ · Deontic PERMIT');
+  } else {
+    beaconEl.textContent = 'ENTANGLED';
+    beaconEl.className = 'metric cyan';
+    addLog('CLEAN packet · ALLOW · Predictive forecast OK');
+  }
+}
+// Simple mesh canvas
+const c = document.getElementById('mesh');
+const ctx = c.getContext('2d');
+function draw() {
+  c.width = c.clientWidth;
+  c.height = 180;
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.strokeStyle = 'rgba(168,85,247,0.4)';
+  ctx.lineWidth = 1;
+  const nodes = [{x:0.15,y:0.5},{x:0.4,y:0.3},{x:0.6,y:0.7},{x:0.85,y:0.5}];
+  [[0,1],[0,2],[1,3],[2,3],[1,2]].forEach(([i,j]) => {
+    ctx.beginPath();
+    ctx.moveTo(nodes[i].x*c.width, nodes[i].y*c.height);
+    ctx.lineTo(nodes[j].x*c.width, nodes[j].y*c.height);
+    ctx.stroke();
+  });
+  nodes.forEach(n => {
+    ctx.beginPath();
+    ctx.arc(n.x*c.width, n.y*c.height, 10, 0, Math.PI*2);
+    ctx.fillStyle = '#0f172a';
+    ctx.strokeStyle = '#22d3ee';
+    ctx.fill(); ctx.stroke();
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
