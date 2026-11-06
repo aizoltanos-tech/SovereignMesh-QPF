@@ -1,22 +1,31 @@
-# SovereignMesh QPF
+# SovereignMesh-QPF
 
-**Current public version: v160** (2026-11-06)
+**Public demonstration repository** for the SovereignMesh Quantum Predictive Firewall (QPF) operator console.
 
-Native predictive firewall operations console (sanitized).
+This repository is intentionally minimal.
 
-- Nested CK C⁵⁰ + higher-order + multi-agent predictive information logic
-- AF_XDP path model <1×10⁻¹⁰¹ ns
-- Z3 107/107 PROVEN
-- Full Native Pay QTTCP (zero-HoL)
-- TPM sealed beacon
+It contains only a sanitized operations console UI and high-level status information suitable for public view.
 
-## Operations Console
-Open `SovereignMesh_QPF_Unified_App_v160.html` in a browser.
+## Current public demo
 
-## Deployment
-USB deploy scripts and engines are available in controlled environments. Public repository contains only sanitized UI and this README.
+* **Version:** v164 (2026-11-06)
+* **Demo UI:** SovereignMesh_QPF_Unified_App_v164.html
+* **Previous:** v163 · v162 · v161
+* **Purpose:** Operator-facing demonstration of status indicators, modes, mesh visualization and activity log for a predictive firewall concept aimed at banking and payment infrastructure.
 
-## Repository
-https://github.com/aizoltanos-tech/SovereignMesh-QPF
+## High-level status (sanitized)
 
-Public policy: only sanitized UI HTML + high-level README. No source engines, official records with mechanisms, or continuation notes.
+| Indicator | Value |
+| --- | --- |
+| Latency model | <1×10⁻¹⁰⁵ ns |
+| Z3 invariants | 111/111 PROVEN |
+| Nested CK | C⁵⁴ + higher-order + expanded multi-agent C_G + dynamic updates + K_i(K_j) + multi-horizon + predictive info-logic enriched |
+| Payment Stack | PROTECTED |
+| TPM | SEALED |
+| QTP-QSIL | ACTIVE (predictive multi-agent temporal + higher-order epistemic + info-logic enriched) |
+
+## What is *not* published here
+
+Source engines, official records with mechanisms, deployment internals, and continuation notes remain local (per PUBLIC_PUSH_POLICY.md).
+
+Deploy target: USB <30 min on commercial Linux hardware.
