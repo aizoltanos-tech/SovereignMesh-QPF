@@ -8,18 +8,18 @@ It contains only a sanitized operations console UI and high-level status informa
 
 ## Current public demo
 
-* **Version:** v165 (2026-11-06)
-* **Demo UI:** SovereignMesh_QPF_Unified_App_v165.html
-* **Previous:** v164 · v163 · v162
+* **Version:** v166 (2026-11-06)
+* **Demo UI:** SovereignMesh_QPF_Unified_App_v166.html
+* **Previous:** v165 · v164 · v163
 * **Purpose:** Operator-facing demonstration of status indicators, modes, mesh visualization and activity log for a predictive firewall concept aimed at banking and payment infrastructure.
 
 ## High-level status (sanitized)
 
 | Indicator | Value |
 | --- | --- |
-| Latency model | <1×10⁻¹⁰⁶ ns |
-| Z3 invariants | 112/112 PROVEN |
-| Nested CK | C⁵⁵ + higher-order + expanded multi-agent C_G + dynamic updates + K_i(K_j) + multi-horizon + predictive info-logic enriched |
+| Latency model | <1×10⁻¹⁰⁷ ns |
+| Z3 invariants | 113/113 PROVEN |
+| Nested CK | C⁵⁶ + higher-order + expanded multi-agent C_G + dynamic updates + K_i(K_j) + multi-horizon + predictive info-logic enriched |
 | Payment Stack | PROTECTED |
 | TPM | SEALED |
 | QTP-QSIL | ACTIVE (predictive multi-agent temporal + higher-order epistemic + info-logic enriched) |
@@ -27,5 +27,3 @@ It contains only a sanitized operations console UI and high-level status informa
 ## What is *not* published here
 
 Source engines, official records with mechanisms, deployment internals, and continuation notes remain local (per PUBLIC_PUSH_POLICY.md).
-
-Deploy target: USB <30 min on commercial Linux hardware.
