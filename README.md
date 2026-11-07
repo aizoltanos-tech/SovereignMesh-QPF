@@ -2,30 +2,33 @@
 
 **Public demonstration repository** for the SovereignMesh Quantum Predictive Firewall (QPF) operator console.
 
-This repository is intentionally minimal.
-
+This repository is intentionally minimal.  
 It contains only a sanitized operations console UI and high-level status information suitable for public view.
 
 ## Current public demo
 
-* **Version:** v164 (2026-11-06)
-* **Demo UI:** SovereignMesh_QPF_Unified_App_v164.html
-* **Previous:** v163 · v162 · v161
-* **Purpose:** Operator-facing demonstration of status indicators, modes, mesh visualization and activity log for a predictive firewall concept aimed at banking and payment infrastructure.
+- **Version:** v174 (2026-11-07)
+- **Demo UI:** [SovereignMesh_QPF_Unified_App_v174.html](SovereignMesh_QPF_Unified_App_v174.html)
+- **Previous:** v173 · v172 · v171
+- **Purpose:** Operator-facing demonstration of status indicators, modes, mesh visualization and activity log for a predictive firewall concept aimed at banking and payment infrastructure.
 
 ## High-level status (sanitized)
 
 | Indicator | Value |
-| --- | --- |
-| Latency model | <1×10⁻¹⁰⁵ ns |
-| Z3 invariants | 111/111 PROVEN |
-| Nested CK | C⁵⁴ + higher-order + expanded multi-agent C_G + dynamic updates + K_i(K_j) + multi-horizon + predictive info-logic enriched |
+|-----------|-------|
+| Latency model | <1×10⁻¹¹⁵ ns |
+| Z3 invariants | 121/121 PROVEN |
+| Nested CK | C⁶⁴ + higher-order + expanded multi-agent C_G + full information-logic enrichment + dynamic epistemic updates + refined multi-horizon + predictive info-logic enriched |
 | Payment Stack | PROTECTED |
 | TPM | SEALED |
-| QTP-QSIL | ACTIVE (predictive multi-agent temporal + higher-order epistemic + info-logic enriched) |
+| QTP-QSIL | ACTIVE (predictive multi-agent temporal + higher-order epistemic + dynamic updates + full info-logic enriched + refined horizon) |
 
 ## What is *not* published here
 
 Source engines, official records with mechanisms, deployment internals, and continuation notes remain local (per PUBLIC_PUSH_POLICY.md).
 
 Deploy target: USB <30 min on commercial Linux hardware.
+
+## About
+
+SovereignMesh Quantum Predictive Firewall (QPF) – nativní prediktivní firewall s historicky nejnižší latencí detekce hrozeb pro bankovní infrastrukturu. QSIL + Quantum Entanglement Beacon.
