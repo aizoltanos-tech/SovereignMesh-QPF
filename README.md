@@ -4,12 +4,12 @@ Native predictive quantum-inspired firewall for global banking and payment infra
 
 ## Current Version: v184 (2026-11-07)
 
-- Nested CK C⁴⁴ + higher-order + multi-agent C_G
-- Deeper multi-agent temporal information logic + further refined multi-horizon predictive collapse forecasting (horizon=13)
+- Nested CK C⁴⁴ + higher-order C(C⁴⁴(φ)) + expanded multi-agent C_G
+- Further refined multi-horizon predictive collapse forecasting (horizon=13)
 - AF_XDP zero-copy path model <1×10⁻¹²⁵ ns
 - Z3 131/131 PROVEN
 - TPM 2.0 sealed + Full Native Pay QTTCP (zero-HoL)
-- Quantum entanglement enriched with information logic
+- Quantum entanglement fully enriched with information logic (runtime Z3-verified dynamic epistemic higher-order + multi-agent deontic inside Bell-state collapse + nested common knowledge C_G(C⁴⁴(φ)))
 - Rapid USB deploy <30 min on commercial Linux
 
 **Public repository contains only sanitized operations console UI.**
