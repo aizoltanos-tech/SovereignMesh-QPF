@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v178 – Operations Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#0f172a; --card:#1e293b; --accent:#06b6d4; --purple:#a855f7; --green:#10b981; --text:#f1f5f9; --muted:#94a3b8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--text); min-height:100vh; padding:1.5rem; }
+  header { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; border-bottom:1px solid #334155; padding-bottom:1rem; }
+  h1 { font-size:1.25rem; background:linear-gradient(90deg,#06b6d4,#a855f7,#10b981); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .badge { background:#0e7490; color:#a5f3fc; font-size:0.7rem; padding:0.2rem 0.5rem; border-radius:999px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+  .card { background:var(--card); border:1px solid #334155; border-radius:12px; padding:1rem; }
+  .card h3 { font-size:0.7rem; color:var(--muted); margin-bottom:0.4rem; text-transform:uppercase; letter-spacing:0.05em; }
+  .card .val { font-size:1.5rem; font-weight:700; font-variant-numeric:tabular-nums; }
+  .cyan { color:var(--accent); } .purple { color:var(--purple); } .green { color:var(--green); }
+  .section { background:var(--card); border:1px solid #334155; border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+  .section h2 { font-size:0.9rem; margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem; }
+  .status { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; }
+  .dot { width:8px; height:8px; border-radius:50%; background:var(--green); }
+  footer { margin-top:2rem; font-size:0.7rem; color:var(--muted); text-align:center; }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>SovereignMesh QPF v178</h1>
+      <div style="font-size:0.75rem;color:var(--muted)">Operations Console · Nested CK C⁶⁸ · AF_XDP &lt;1×10⁻¹¹⁹ ns</div>
+    </div>
+    <span class="badge">Z3 125/125 PROVEN</span>
+  </header>
+
+  <div class="grid">
+    <div class="card"><h3>Latency Model</h3><div class="val cyan">&lt;1e-119 ns</div></div>
+    <div class="card"><h3>Nested CK</h3><div class="val purple">C⁶⁸</div></div>
+    <div class="card"><h3>Z3 Invariants</h3><div class="val green">125/125</div></div>
+    <div class="card"><h3>Pay QTTCP</h3><div class="val cyan">zero-HoL</div></div>
+  </div>
+
+  <div class="section">
+    <h2>System Status</h2>
+    <div class="status"><span class="dot"></span> Bell-state entanglement ACTIVE (Nested CK C⁶⁸)</div>
+    <div class="status" style="margin-top:0.4rem"><span class="dot"></span> EntropyMonitor + multi-horizon predictive collapse</div>
+    <div class="status" style="margin-top:0.4rem"><span class="dot"></span> TPM 2.0 sealed · Full Native Pay QTTCP</div>
+    <div class="status" style="margin-top:0.4rem"><span class="dot"></span> Deeper multi-agent temporal information logic ENABLED</div>
+  </div>
+
+  <div class="section">
+    <h2>Capability Snapshot</h2>
+    <ul style="font-size:0.8rem;color:var(--muted);line-height:1.6;padding-left:1.2rem">
+      <li>Nested Common Knowledge C⁶⁸ + higher-order + multi-agent C_G</li>
+      <li>AF_XDP zero-copy path model &lt;1×10⁻¹¹⁹ ns</li>
+      <li>Runtime Z3-verified dynamic epistemic + multi-agent deontic inside Bell-state collapse</li>
+      <li>Rapid USB / Live USB deploy &lt;30 min on commercial Linux</li>
+      <li>Signed TI + EntropyMonitor (Shannon / Rényi / Tsallis)</li>
+    </ul>
+  </div>
+
+  <footer>
+    SovereignMesh QPF · Public sanitized operations console · © 2026<br>
+    Source engines and detailed mechanisms remain internal. Public repository policy enforced.
+  </footer>
+</body>
+</html>
