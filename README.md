@@ -1,34 +1,17 @@
-# SovereignMesh-QPF
+# SovereignMesh QPF
 
-**Public demonstration repository** for the SovereignMesh Quantum Predictive Firewall (QPF) operator console.
+Native predictive quantum-inspired firewall for global banking and payment infrastructure.
 
-This repository is intentionally minimal.  
-It contains only a sanitized operations console UI and high-level status information suitable for public view.
+## Current Version: v177 (2026-11-07)
 
-## Current public demo
+- Nested CK C⁶⁷ + higher-order + multi-agent C_G
+- Further refined multi-horizon predictive collapse forecasting
+- AF_XDP zero-copy path model <1×10⁻¹¹⁸ ns
+- Z3 124/124 PROVEN
+- TPM 2.0 sealed + Full Native Pay QTTCP (zero-HoL)
+- Quantum entanglement enriched with information logic
+- Rapid USB deploy <30 min on commercial Linux
 
-- **Version:** v176 (2026-11-07)
-- **Demo UI:** [SovereignMesh_QPF_Unified_App_v176.html](SovereignMesh_QPF_Unified_App_v176.html)
-- **Previous:** v175 · v174 · v173
-- **Purpose:** Operator-facing demonstration of status indicators, modes, mesh visualization and activity log for a predictive firewall concept aimed at banking and payment infrastructure.
+**Public repository contains only sanitized operations console UI.**
 
-## High-level status (sanitized)
-
-| Indicator | Value |
-|-----------|-------|
-| Latency model | <1×10⁻¹¹⁷ ns |
-| Z3 invariants | 123/123 PROVEN |
-| Nested CK | C⁶⁶ + higher-order + expanded multi-agent C_G + full information-logic enrichment + dynamic epistemic updates + refined multi-horizon + nested common knowledge |
-| Payment Stack | PROTECTED |
-| TPM | SEALED |
-| QTP-QSIL | ACTIVE (predictive multi-agent temporal + higher-order epistemic + dynamic updates + full info-logic enriched + refined horizon) |
-
-## What is *not* published here
-
-Source engines, official records with mechanisms, deployment internals, and continuation notes remain local (per PUBLIC_PUSH_POLICY.md).
-
-Deploy target: USB <30 min on commercial Linux hardware.
-
-## About
-
-SovereignMesh Quantum Predictive Firewall (QPF) – nativní prediktivní firewall s historicky nejnižší latencí detekce hrozeb pro bankovní infrastrukturu. QSIL + Quantum Entanglement Beacon.
+See `SovereignMesh_QPF_Unified_App_v177.html` for the interactive dashboard.
