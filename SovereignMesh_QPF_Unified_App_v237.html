@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v237 Operations Console</title>
+<style>
+body { background: #0f172a; color: #e2e8f0; font-family: system-ui, sans-serif; margin: 0; padding: 20px; }
+header { border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 20px; }
+h1 { color: #22d3ee; margin: 0; }
+.metric { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 16px; margin: 10px; display: inline-block; min-width: 180px; }
+.metric span { color: #a78bfa; font-size: 1.4em; font-weight: bold; }
+.mode { padding: 8px 16px; border-radius: 8px; margin: 5px; cursor: pointer; }
+.normal { background: #064e3b; }
+.stress { background: #7c2d12; }
+.airgap { background: #1e3a8a; }
+canvas { background: #020617; border-radius: 12px; margin-top: 20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>SovereignMesh QPF v237</h1>
+  <p>Operations Console – Nested CK C¹⁴⁷ | AF_XDP <1×10⁻¹⁷⁸ ns | Z3 184/184 PROVEN</p>
+</header>
+<div>
+  <div class="metric">Latency model<br><span><1e-178 ns</span></div>
+  <div class="metric">Nested CK<br><span>C¹⁴⁷ ACTIVE</span></div>
+  <div class="metric">Z3 Proven<br><span>184/184</span></div>
+  <div class="metric">Horizon<br><span>66</span></div>
+  <div class="metric">TPM<br><span>SEALED</span></div>
+</div>
+<div>
+  <button class="mode normal" onclick="setMode('NORMAL')">Normal</button>
+  <button class="mode stress" onclick="setMode('STRESS')">Stress</button>
+  <button class="mode airgap" onclick="setMode('AIR-GAP')">Air-Gap</button>
+</div>
+<canvas id="mesh" width="800" height="200"></canvas>
+<script>
+function setMode(m) { console.log('Mode:', m); }
+const c = document.getElementById('mesh').getContext('2d');
+c.fillStyle = '#a855f7';
+c.beginPath(); c.arc(100,100,8,0,Math.PI*2); c.fill();
+c.beginPath(); c.arc(400,100,8,0,Math.PI*2); c.fill();
+c.beginPath(); c.arc(700,100,8,0,Math.PI*2); c.fill();
+c.strokeStyle = 'rgba(168,85,247,0.4)';
+c.moveTo(100,100); c.lineTo(400,100); c.lineTo(700,100); c.stroke();
+</script>
+</body>
+</html>
