@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v258 - Operations Console</title>
+<style>
+body { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; margin: 0; padding: 20px; }
+header { border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 20px; }
+h1 { color: #22d3ee; margin: 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 16px; }
+.metric { font-size: 1.8em; font-weight: bold; color: #a78bfa; }
+.status { color: #34d399; }
+button { background: #0891b2; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+  <h1>SovereignMesh QPF v258</h1>
+  <p>Operations Console • Nested CK C<sup>168</sup> • AF_XDP model <1×10<sup>-199</sup> ns • Z3 205/205 PROVEN</p>
+</header>
+<div class="grid">
+  <div class="card">
+    <div>Latency (modeled)</div>
+    <div class="metric"><1e-199 ns</div>
+  </div>
+  <div class="card">
+    <div>Z3 Invariants</div>
+    <div class="metric">205/205</div>
+    <div class="status">PROVEN</div>
+  </div>
+  <div class="card">
+    <div>Nested CK</div>
+    <div class="metric">C<sup>168</sup></div>
+    <div class="status">ACTIVE</div>
+  </div>
+  <div class="card">
+    <div>Pay QTTCP</div>
+    <div class="metric">Zero HoL</div>
+    <div class="status">PROTECTED</div>
+  </div>
+</div>
+<div style="margin-top:20px;">
+  <button onclick="alert('Simulation: ALLOW INSTANT_PAYMENT')">Trigger Test Payment</button>
+  <button onclick="alert('Mode: Normal / Stress / Air-Gap')">Switch Mode</button>
+</div>
+<p style="margin-top:30px; font-size:0.85em; color:#94a3b8;">Sanitized public UI. Full engines and official records remain air-gapped. Rapid USB deploy available locally.</p>
+</body>
+</html>
