@@ -1,12 +1,21 @@
 # SovereignMesh QPF
 
-**Aktuální verze: v290** (2026-11-13)
+**Current public version: v291** (2026-11-13)
 
-SovereignMesh Quantum Predictive Firewall – operations console a sanitizované UI pro bankovní infrastrukturu.
+Quantum-inspired Predictive Firewall demonstrator for payment / banking infrastructure research.
 
-## Veřejné soubory
-- [SovereignMesh_QPF_Unified_App_v290.html](SovereignMesh_QPF_Unified_App_v290.html) – minimalistický operations console (Nested CK C²⁰⁰, Z3 237/237 PROVEN, latency model <1×10⁻²³¹ ns)
+## Public artifacts only
+- `SovereignMesh_QPF_Unified_App_v291.html` – sanitized operations console (no internal mechanisms)
+- This README
 
-Plné zdrojové kódy, úřední záznamy a mechanismy zůstávají air-gapped / lokální podle politiky.
+## Highlights (public summary)
+- Nested Common Knowledge C²⁰¹ (model)
+- Formal verification status reported as Z3 238/238 PROVEN (simulation)
+- Ultra-low latency path model (AF_XDP-inspired)
+- USB-oriented deployment target on commercial Linux
+- Instant payment / clearing allow vs high-risk / KYC drop demo behaviour in the UI
 
-Runtime testy: PASSED (ALLOW INSTANT_PAYMENT/CLEARING_SETTLEMENT, DROP KYC_VERIFY/high-risk PAYMENT, Z3 237/237 PROVEN, Nested CK C²⁰⁰ ACTIVE).
+## Policy
+Source engines, official records with mechanisms, and detailed continuation notes remain private / air-gapped. Only sanitized UI and this README are published.
+
+Repository: https://github.com/aizoltanos-tech/SovereignMesh-QPF
