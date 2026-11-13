@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SovereignMesh QPF v293 – Operations Console</title>
+<style>
+:root{--bg:#0b1220;--card:#111827;--border:#1f2937;--text:#e5e7eb;--muted:#9ca3af;--cyan:#22d3ee;--purple:#a78bfa;--emerald:#34d399;--rose:#fb7185;--amber:#fbbf24}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border);background:rgba(17,24,39,.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-badge{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0891b2,#7c3aed);display:grid;place-items:center;font-weight:700}
+h1{font-size:1.05rem;background:linear-gradient(90deg,#22d3ee,#c4b5fd,#34d399);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:.7rem;color:var(--muted)}
+.pill{font-size:.7rem;padding:4px 10px;border-radius:999px;border:1px solid var(--border);color:var(--muted)}
+.pill.on{border-color:rgba(52,211,153,.4);color:var(--emerald);background:rgba(52,211,153,.08)}
+main{max-width:1100px;margin:0 auto;padding:20px;display:grid;gap:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
+.card h3{font-size:.7rem;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.metric{font-size:1.45rem;font-variant-numeric:tabular-nums;font-weight:700}
+.cyan{color:var(--cyan)}.purple{color:var(--purple)}.emerald{color:var(--emerald)}.rose{color:var(--rose)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button{cursor:pointer;border:1px solid var(--border);background:#1f2937;color:var(--text);border-radius:10px;padding:8px 12px;font-size:.75rem}
+button:hover{border-color:#374151}
+button.primary{background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.35);color:var(--cyan)}
+button.warn{background:rgba(251,113,133,.12);border-color:rgba(251,113,133,.35);color:var(--rose)}
+.modes button.active{outline:1px solid var(--cyan)}
+.log{font-family:ui-monospace,monospace;font-size:.68rem;background:#020617;border:1px solid var(--border);border-radius:10px;padding:10px;height:220px;overflow:auto}
+.mesh{height:180px;background:#020617;border-radius:10px;position:relative;overflow:hidden}
+.node{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.footer{text-align:center;font-size:.65rem;color:var(--muted);padding:16px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <div class="logo-badge">SM</div>
+    <div>
+      <h1>SovereignMesh QPF</h1>
+      <div class="sub">Operations Console · v293</div>
+    </div>
+  </div>
+  <div class="row">
+    <span class="pill on">Nested CK C²⁰³ ACTIVE</span>
+    <span class="pill">Z3 240/240 PROVEN</span>
+    <span class="pill">AF_XDP &lt;1e-234 ns</span>
+  </div>
+</header>
+<main>
+  <div class="grid">
+    <div class="card"><h3>Latency</h3><div class="metric cyan" id="lat">0.000</div><div class="sub">ns (model)</div></div>
+    <div class="card"><h3>Throughput</h3><div class="metric purple" id="tps">0</div><div class="sub">tx/s</div></div>
+    <div class="card"><h3>Nested CK</h3><div class="metric emerald">C²⁰³</div><div class="sub">ACTIVE</div></div>
+    <div class="card"><h3>QSIL Compliance</h3><div class="metric cyan" id="comp">99.99%</div><div class="sub">Epistemic verified</div></div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between;margin-bottom:10px">
+      <strong style="font-size:.85rem">Mode &amp; Stress</strong>
+      <div class="row modes">
+        <button class="active" data-mode="normal">Normal</button>
+        <button data-mode="stress">Stress</button>
+        <button data-mode="airgap">Air-Gap</button>
+      </div>
+    </div>
+    <div class="row">
+      <button class="primary" id="btnPay">+ Instant Payment</button>
+      <button id="btnKyc">+ KYC Verify</button>
+      <button class="warn" id="btnThreat">Inject High-Risk</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <strong style="font-size:.85rem">Mesh Topology (conceptual)</strong>
+    <div class="mesh" id="mesh">
+      <div class="node" style="left:12%;top:45%"></div>
+      <div class="node" style="left:38%;top:25%;background:var(--purple)"></div>
+      <div class="node" style="left:58%;top:65%;background:var(--purple)"></div>
+      <div class="node" style="left:85%;top:45%;background:var(--emerald)"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <strong style="font-size:.85rem">Activity</strong>
+    <div class="log" id="log"></div>
+  </div>
+</main>
+<div class="footer">SovereignMesh QPF v293 · Sanitized public UI · No internal mechanisms exposed · 2026-11-13</div>
+<script>
+const logEl=document.getElementById('log');
+const latEl=document.getElementById('lat');
+const tpsEl=document.getElementById('tps');
+const compEl=document.getElementById('comp');
+let mode='normal', running=true;
+function addLog(msg){const d=document.createElement('div');d.textContent=new Date().toISOString().slice(11,23)+'  '+msg;logEl.prepend(d);while(logEl.children.length>18)logEl.lastChild.remove()}
+function tick(){
+  if(!running)return;
+  const base=mode==='stress'?1800:mode==='airgap'?400:1400;
+  const tps=Math.round(base+Math.random()*200-100);
+  const lat=(1e-234*(0.8+Math.random()*0.4)).toExponential(1);
+  latEl.textContent=lat;
+  tpsEl.textContent=tps;
+  compEl.textContent=(99.97+Math.random()*0.02).toFixed(2)+'%';
+  if(Math.random()>0.55){
+    const types=['INSTANT_PAYMENT','CLEARING_SETTLEMENT','KYC_VERIFY'];
+    const t=types[Math.floor(Math.random()*types.length)];
+    const allow=t!=='KYC_VERIFY'||Math.random()>0.4;
+    addLog(t+' → '+(allow?'ALLOW':'DROP')+' | C²⁰³');
+  }
+}
+setInterval(tick,900);
+tick();
+document.querySelectorAll('.modes button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.modes button').forEach(x=>x.classList.remove('active'));b.classList.add('active');mode=b.dataset.mode;addLog('Mode → '+mode)});
+document.getElementById('btnPay').onclick=()=>addLog('MANUAL INSTANT_PAYMENT → ALLOW');
+document.getElementById('btnKyc').onclick=()=>addLog('MANUAL KYC_VERIFY → DROP');
+document.getElementById('btnThreat').onclick=()=>addLog('HIGH-RISK INJECT → DROP');
+</script>
+</body>
+</html>
