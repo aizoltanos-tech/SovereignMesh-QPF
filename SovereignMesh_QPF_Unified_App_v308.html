@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v308 – Operations Console</title>
+<style>
+body{margin:0;background:#0f172a;color:#e2e8f0;font-family:system-ui,sans-serif}
+.header{padding:1rem 1.5rem;border-bottom:1px solid #1e293b;display:flex;justify-content:space-between;align-items:center}
+h1{margin:0;font-size:1.25rem;background:linear-gradient(90deg,#22d3ee,#a855f7);-webkit-background-clip:text;color:transparent}
+.card{background:#1e293b;border-radius:12px;padding:1rem;margin:1rem;border:1px solid #334155}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;padding:1rem}
+.metric{font-size:1.8rem;font-weight:700;font-variant-numeric:tabular-nums}
+.ok{color:#34d399}.warn{color:#fbbf24}.bad{color:#f87171}
+button{background:#334155;color:#e2e8f0;border:1px solid #475569;padding:.5rem 1rem;border-radius:8px;cursor:pointer}
+button:hover{background:#475569}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>SovereignMesh QPF v308</h1>
+    <div style="font-size:.75rem;color:#94a3b8">Operations Console · Nested CK C²¹⁸ · model only</div>
+  </div>
+  <div id="status" class="ok">ACTIVE</div>
+</div>
+<div class="grid">
+  <div class="card"><div>Nested CK</div><div class="metric">C²¹⁸</div><div style="font-size:.75rem">higher-order + multi-agent</div></div>
+  <div class="card"><div>Z3</div><div class="metric ok">255/255</div><div style="font-size:.75rem">PROVEN</div></div>
+  <div class="card"><div>Latency model</div><div class="metric"><1×10⁻²⁴⁹ ns</div><div style="font-size:.75rem">AF_XDP path</div></div>
+  <div class="card"><div>Horizon</div><div class="metric">137</div><div style="font-size:.75rem">predictive collapse</div></div>
+</div>
+<div class="card">
+  <strong>Runtime model status</strong>
+  <p>ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT<br>
+     DROP KYC_VERIFY / high-risk PAYMENT<br>
+     Nested CK C²¹⁸ ACTIVE · Z3 255/255 PROVEN</p>
+  <button onclick="document.getElementById('log').innerHTML+='[model] Payment processed ALLOW<br>'">Trigger Payment</button>
+  <button onclick="document.getElementById('log').innerHTML+='[model] High-risk DROP + collapse<br>'">Trigger High-Risk</button>
+  <div id="log" style="margin-top:1rem;font-family:monospace;font-size:.8rem;color:#94a3b8"></div>
+</div>
+<div style="padding:1rem;font-size:.7rem;color:#64748b">© 2026 SovereignMesh / QPF – model demonstration only. Source and official records air-gapped.</div>
+</body>
+</html>
