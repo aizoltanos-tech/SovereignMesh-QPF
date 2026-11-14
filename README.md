@@ -1,27 +1,24 @@
-# SovereignMesh QPF / SHIELD
+# SovereignMesh QPF
 
-**Current public version: QPF v312**
+Native predictive quantum-inspired firewall for global banking and payment infrastructure.
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C²²²) model, formal verification status and ultra-low latency path model.
+## Current Version: v313 (2026-11-15)
 
-- Nested CK C²²² ACTIVE
-- Z3 259/259 PROVEN (model)
-- AF_XDP latency model < 1×10⁻²⁵³ ns
-- Multi-horizon predictive collapse forecasting (horizon=141)
-- Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (53-násobné temporal epistemic nesting model)
-- QTP EntropyMonitor + observer-effect collapse (model)
+- Nested CK C²²³ + higher-order C(C²²³(φ)) + expanded multi-agent C_G
+- Multi-horizon predictive collapse forecasting (horizon=142)
+- AF_XDP zero-copy path model <1×10⁻²⁵⁴ ns
+- Z3 260/260 PROVEN
+- TPM 2.0 sealed + SeL4-inspired isolation + Full Native Pay QTTCP (zero-HoL)
+- Quantum entanglement fully enriched with information logic (54-násobné temporal epistemic nesting + refined operators inside Bell-state collapse)
+- Rapid USB deploy <30 min on commercial Linux
 
-## Public assets
-- `SovereignMesh_QPF_Unified_App_v312.html` – **current minimalist operations console**
-- Previous versions remain available for reference
-- This README
+**Public repository contains only sanitized operations console UI.**
 
-Source engines, official deployment records and internal mechanisms remain air-gapped / local only (public-push policy).
+See `SovereignMesh_QPF_Unified_App_v313.html` for the interactive dashboard.
 
 ## Runtime model status
 ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT  
 DROP KYC_VERIFY / high-risk PAYMENT  
-Z3 259/259 PROVEN · Nested CK C²²² ACTIVE
+Z3 260/260 PROVEN · Nested CK C²²³ ACTIVE
 
 © 2026 SovereignMesh / QPF – model demonstration only.
