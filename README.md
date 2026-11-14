@@ -1,18 +1,18 @@
 # SovereignMesh QPF
 
-**Current public version: v309**
+**Current public version: v310**
 
-Sanitized operations console for demonstration of Nested Common Knowledge (C²¹⁹) model, formal verification status and ultra-low latency path model.
+Sanitized operations console for demonstration of Nested Common Knowledge (C²²⁰) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C²¹⁹ ACTIVE
-- Z3 256/256 PROVEN (model)
-- AF_XDP latency model < 1×10⁻²⁵⁰ ns
+- Nested CK C²²⁰ ACTIVE
+- Z3 257/257 PROVEN (model)
+- AF_XDP latency model < 1×10⁻²⁵¹ ns
 - Full Native Pay QTTCP (model)
 - QSIL + information-logic enrichment (model)
 - QTP EntropyMonitor + observer-effect collapse (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v309.html` – minimalist operations console
+- `SovereignMesh_QPF_Unified_App_v310.html` – minimalist operations console
 - This README
 
 Source engines, official deployment records and internal mechanisms remain air-gapped / local only (public-push policy).
@@ -20,6 +20,6 @@ Source engines, official deployment records and internal mechanisms remain air-g
 ## Runtime model status
 ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT  
 DROP KYC_VERIFY / high-risk PAYMENT  
-Z3 256/256 PROVEN · Nested CK C²¹⁹ ACTIVE
+Z3 257/257 PROVEN · Nested CK C²²⁰ ACTIVE
 
 © 2026 SovereignMesh / QPF – model demonstration only.
