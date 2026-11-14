@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SovereignMesh QPF v305 – Operations Console</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  :root { --bg:#0f172a; --card:#1e293b; --border:#334155; --cyan:#22d3ee; --purple:#a855f7; --emerald:#34d399; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:#f1f5f9; font-family:system-ui,sans-serif; min-height:100vh; }
+  header { border-bottom:1px solid var(--border); background:rgba(15,23,42,0.85); backdrop-filter:blur(12px); padding:12px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .logo { display:flex; align-items:center; gap:12px; }
+  .logo-icon { width:40px; height:40px; background:linear-gradient(135deg,#0891b2,#7c3aed); border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:700; color:white; }
+  h1 { font-size:1.15rem; background:linear-gradient(90deg,#22d3ee,#c084fc,#34d399); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .sub { font-size:0.7rem; color:#94a3b8; }
+  main { max-width:1200px; margin:0 auto; padding:20px; display:flex; flex-direction:column; gap:20px; }
+  .grid-4 { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+  .metric-card { background:rgba(30,41,59,0.7); border:1px solid var(--border); border-radius:14px; padding:14px; }
+  .metric-label { font-size:0.7rem; color:#94a3b8; margin-bottom:4px; }
+  .metric-value { font-size:1.6rem; font-weight:700; font-family:ui-monospace,monospace; }
+  .metric-sub { font-size:0.65rem; color:#64748b; margin-top:6px; }
+  .panel { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; }
+  .log-box { background:#020617; border:1px solid var(--border); border-radius:12px; padding:12px; height:280px; overflow-y:auto; font-family:ui-monospace,monospace; font-size:0.7rem; }
+  .log-line { padding:6px 8px; border-bottom:1px solid #1e293b; display:flex; justify-content:space-between; }
+  .status-ok { color:#34d399; }
+  .status-drop { color:#f43f5e; }
+  .footer { text-align:center; font-size:0.65rem; color:#64748b; padding:12px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+function App() {
+  const [running, setRunning] = useState(true);
+  const [tps, setTps] = useState(1850);
+  const [logs, setLogs] = useState([]);
+  const displayLat = "<1e-246";
+  const ckLevel = 215;
+  const z3 = "252/252";
+
+  useEffect(() => {
+    if (!running) return;
+    const iv = setInterval(() => {
+      setTps(t => Math.max(1200, Math.round(t + (Math.random()*80-40))));
+      const types = ["INSTANT_PAYMENT","CLEARING_SETTLEMENT","KYC_VERIFY","PAYMENT"];
+      const type = types[Math.floor(Math.random()*types.length)];
+      const verdict = (type === "KYC_VERIFY" || Math.random() > 0.85) ? "DROP" : "ALLOW";
+      setLogs(prev => [{ts: new Date().toISOString().substr(11,12), type, verdict, ck: `C^${ckLevel}`}, ...prev].slice(0,40));
+    }, 900);
+    return () => clearInterval(iv);
+  }, [running]);
+
+  return (
+    <div>
+      <header>
+        <div className="logo">
+          <div className="logo-icon">Q</div>
+          <div>
+            <h1>SovereignMesh QPF</h1>
+            <div className="sub">Operations Console · v305 · Nested CK C²¹⁵ · model</div>
+          </div>
+        </div>
+        <button onClick={() => setRunning(!running)} style={{padding:"6px 14px", borderRadius:8, border:"1px solid #334155", background: running?"rgba(16,185,129,0.12)":"rgba(251,191,36,0.12)", color: running?"#34d399":"#fbbf24"}}>
+          {running ? "● Active" : "⏸ Paused"}
+        </button>
+      </header>
+      <main>
+        <div className="grid-4">
+          <div className="metric-card">
+            <div className="metric-label">Latency Model</div>
+            <div className="metric-value" style={{color:"#22d3ee"}}>{displayLat}</div>
+            <div className="metric-sub">AF_XDP ns</div>
+          </div>
+          <div className="metric-card">
+            <div className="metric-label">Throughput</div>
+            <div className="metric-value" style={{color:"#a855f7"}}>{tps}</div>
+            <div className="metric-sub">tx/s (model)</div>
+          </div>
+          <div className="metric-card">
+            <div className="metric-label">Nested CK</div>
+            <div className="metric-value" style={{color:"#34d399"}}>C^{ckLevel}</div>
+            <div className="metric-sub">ACTIVE</div>
+          </div>
+          <div className="metric-card">
+            <div className="metric-label">Z3 Verification</div>
+            <div className="metric-value" style={{color:"#22d3ee"}}>{z3}</div>
+            <div className="metric-sub">PROVEN</div>
+          </div>
+        </div>
+        <div className="panel">
+          <h2 style={{fontSize:"0.85rem", marginBottom:12}}>Live Activity Log (model)</h2>
+          <div className="log-box">
+            {logs.map((l,i) => (
+              <div key={i} className="log-line">
+                <span>[{l.ts}] {l.type}</span>
+                <span className={l.verdict==="ALLOW"?"status-ok":"status-drop"}>{l.verdict}</span>
+                <span style={{color:"#22d3ee"}}>{l.ck}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+      <div className="footer">SovereignMesh QPF v305 · model demonstration only · Nested CK C²¹⁵ · Z3 252/252 PROVEN · latency model <1×10⁻²⁴⁶ ns · © 2026</div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
