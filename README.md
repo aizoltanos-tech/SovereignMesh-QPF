@@ -1,23 +1,20 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: SHIELD v1 (QPF-v310 core)**
+**Current public version: QPF v311**
 
-Sanitized real-time operations console for demonstration of Nested Common Knowledge (C²²⁰) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C²²¹) model, formal verification status and ultra-low latency path model.
 
-- **SHIELD** – Real-Time Predictive Firewall operations console
-- Nested CK C²²⁰ ACTIVE
-- Z3 257/257 PROVEN (model)
-- AF_XDP latency model < 1×10⁻²⁵¹ ns
-- Multi-horizon predictive collapse forecasting (horizon=139)
+- Nested CK C²²¹ ACTIVE
+- Z3 258/258 PROVEN (model)
+- AF_XDP latency model < 1×10⁻²⁵² ns
+- Multi-horizon predictive collapse forecasting (horizon=140)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (model)
+- QSIL + information-logic enrichment (52-násobné temporal epistemic nesting model)
 - QTP EntropyMonitor + observer-effect collapse (model)
-- Modes: NORMAL / STRESS / AIR-GAP
-- Live injectors: Instant Payment, Clearing, KYC, High-risk, Burst
 
 ## Public assets
-- `SovereignMesh_SHIELD_Realtime_App.html` – **real-time SHIELD operations console**
-- `SovereignMesh_QPF_Unified_App_v310.html` – previous minimalist console
+- `SovereignMesh_QPF_Unified_App_v311.html` – **current minimalist operations console**
+- Previous versions remain available for reference
 - This README
 
 Source engines, official deployment records and internal mechanisms remain air-gapped / local only (public-push policy).
@@ -25,6 +22,6 @@ Source engines, official deployment records and internal mechanisms remain air-g
 ## Runtime model status
 ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT  
 DROP KYC_VERIFY / high-risk PAYMENT  
-Z3 257/257 PROVEN · Nested CK C²²⁰ ACTIVE
+Z3 258/258 PROVEN · Nested CK C²²¹ ACTIVE
 
-© 2026 SovereignMesh / SHIELD – model demonstration only.
+© 2026 SovereignMesh / QPF – model demonstration only.
