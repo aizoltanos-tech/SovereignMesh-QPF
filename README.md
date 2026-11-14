@@ -1,6 +1,6 @@
 # SovereignMesh QPF
 
-**Aktuální verze: v296** (2026-11-14)
+**Aktuální verze: v296** (2026-11-14 01:18 CET)
 
 SovereignMesh Quantum Predictive Firewall – operations console a sanitizované UI pro bankovní infrastrukturu.
 
@@ -9,4 +9,4 @@ SovereignMesh Quantum Predictive Firewall – operations console a sanitizované
 
 Plné zdrojové kódy, úřední záznamy a mechanismy zůstávají air-gapped / lokální podle politiky.
 
-Runtime testy: PASSED (ALLOW INSTANT_PAYMENT/CLEARING_SETTLEMENT, DROP KYC_VERIFY/high-risk PAYMENT, Z3 243/243 PROVEN, Nested CK C²⁰⁶ ACTIVE) – ověřeno 2026-11-14.
+Runtime testy: PASSED (ALLOW INSTANT_PAYMENT/CLEARING_SETTLEMENT, DROP KYC_VERIFY/high-risk PAYMENT, Z3 243/243 PROVEN, Nested CK C²⁰⁶ ACTIVE) – ověřeno 2026-11-14 01:18 CET.
