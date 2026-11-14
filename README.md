@@ -7,6 +7,7 @@ Sanitized operations console for demonstration of Nested Common Knowledge (C²²
 - Nested CK C²²⁰ ACTIVE
 - Z3 257/257 PROVEN (model)
 - AF_XDP latency model < 1×10⁻²⁵¹ ns
+- Multi-horizon predictive collapse forecasting (horizon=139)
 - Full Native Pay QTTCP (model)
 - QSIL + information-logic enrichment (model)
 - QTP EntropyMonitor + observer-effect collapse (model)
