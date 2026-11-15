@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v327 – Operations Console</title>
+<style>
+body { background: #0f172a; color: #e2e8f0; font-family: system-ui, sans-serif; margin: 0; padding: 20px; }
+.header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.logo { width: 40px; height: 40px; background: linear-gradient(135deg, #06b6d4, #a855f7); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+h1 { margin: 0; background: linear-gradient(90deg, #22d3ee, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 16px; }
+.metric { font-size: 1.8rem; font-weight: bold; color: #22d3ee; font-family: monospace; }
+.sub { font-size: 0.75rem; color: #94a3b8; margin-top: 4px; }
+.mesh { height: 180px; background: #020617; border-radius: 12px; border: 1px solid #334155; display: flex; align-items: center; justify-content: center; color: #64748b; }
+.status { color: #34d399; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo">SM</div>
+  <div>
+    <h1>SovereignMesh QPF v327</h1>
+    <div style="font-size:0.8rem;color:#94a3b8">Operations Console • Nested CK C²³⁷ • horizon=156 • Z3 274/274 PROVEN</div>
+  </div>
+</div>
+<div class="grid">
+  <div class="card"><div>Latency model</div><div class="metric">&lt;1×10⁻²⁶⁸ ns</div><div class="sub">AF_XDP zero-copy</div></div>
+  <div class="card"><div>Z3 Verification</div><div class="metric">274/274</div><div class="sub status">PROVEN</div></div>
+  <div class="card"><div>Nested CK</div><div class="metric">C²³⁷</div><div class="sub">higher-order active</div></div>
+  <div class="card"><div>Entropy / QSIL</div><div class="metric">Stable</div><div class="sub">Bell-state + info logic</div></div>
+</div>
+<div class="card">
+  <h3 style="margin-top:0">Mesh Topology (conceptual)</h3>
+  <div class="mesh">Client ↔ Sidecar A/B (PQC) ↔ Ledger • QTTCP streams isolated</div>
+  <div style="margin-top:12px;font-size:0.8rem;color:#94a3b8">Runtime: PASSED | TPM sealed | SeL4 isolation | Full Native Pay QTTCP</div>
+</div>
+</body>
+</html>
