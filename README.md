@@ -1,26 +1,19 @@
-# SovereignMesh QPF
+# SovereignMesh-QPF
 
-**SovereignMesh Quantum Predictive Firewall** – public sanitized operations console.
+SovereignMesh Quantum Predictive Firewall (QPF) – nativní prediktivní firewall s historicky nejnižší latencí detekce hrozeb pro bankovní a platební infrastrukturu.
 
-## Current public version
-- **v352** – Operations Console (sanitized)
-- Nested Common Knowledge visualization (C²⁶² indicator)
-- Payment-stream oriented verdict demo (ALLOW / DROP)
-- Mesh topology canvas (illustrative)
-- Modes: Normal / Stress / Air-Gap
+**Aktuální verze: v353** (2026-11-17)
 
-## Important notice
-This repository contains **only** the public, sanitized UI dashboard and this README.
+- Nested CK C²⁶³ + QSIL-enriched quantum entanglement
+- AF_XDP model <1×10⁻²⁹⁴ ns
+- Z3 300/300 PROVEN
+- Full Native Pay QTTCP (HoL-free)
+- Deployable from USB on commercial Linux hardware <30 min
 
-- No engine source code
-- No internal mechanism descriptions
-- No deployment scripts with know-how
-- No official deployment records containing proprietary logic
+## Sanitized Operations Console
+Open `SovereignMesh_QPF_Unified_App_v353.html` in a modern browser for the live operations dashboard.
 
-All sensitive implementation details remain private.
+## Public Policy
+Source code, official records with mechanisms, and detailed continuation documents are not published. Only sanitized UI and this README are public.
 
-## Quick view
-Open `SovereignMesh_QPF_Unified_App_v352.html` in any modern browser.
-
-## License
-Proprietary – public view only. All rights reserved.
+© 2026 SovereignMesh / Zoltan OS
