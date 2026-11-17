@@ -1,28 +1,26 @@
-# SovereignMesh QPF / SHIELD
+# SovereignMesh QPF
 
-**Current public version: QPF v351**
+**SovereignMesh Quantum Predictive Firewall** – public sanitized operations console.
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C²⁶¹) model, formal verification status and ultra-low latency path model.
+## Current public version
+- **v352** – Operations Console (sanitized)
+- Nested Common Knowledge visualization (C²⁶² indicator)
+- Payment-stream oriented verdict demo (ALLOW / DROP)
+- Mesh topology canvas (illustrative)
+- Modes: Normal / Stress / Air-Gap
 
-- Nested CK C²⁶¹ ACTIVE
-- Z3 298/298 PROVEN (model)
-- AF_XDP latency model < 1×10⁻²⁹² ns
-- Multi-horizon predictive collapse forecasting (horizon=180)
-- Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (92-násobné temporal epistemic nesting model)
-- Higher-order dynamic belief revision + recursive public announcement + Conditional Common Knowledge + refined DEL action models (model)
-- QTP EntropyMonitor + observer-effect collapse (model)
+## Important notice
+This repository contains **only** the public, sanitized UI dashboard and this README.
 
-## Public assets
-- `SovereignMesh_QPF_Unified_App_v351.html` – **current minimalist operations console**
-- Previous versions remain available for reference
-- This README
+- No engine source code
+- No internal mechanism descriptions
+- No deployment scripts with know-how
+- No official deployment records containing proprietary logic
 
-Source engines, official deployment records and internal mechanisms remain air-gapped / local only (public-push policy).
+All sensitive implementation details remain private.
 
-## Runtime model status
-ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT  
-DROP KYC_VERIFY / high-risk PAYMENT  
-Z3 298/298 PROVEN · Nested CK C²⁶¹ ACTIVE
+## Quick view
+Open `SovereignMesh_QPF_Unified_App_v352.html` in any modern browser.
 
-© 2026 SovereignMesh / QPF – model demonstration only.
+## License
+Proprietary – public view only. All rights reserved.
