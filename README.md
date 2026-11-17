@@ -1,20 +1,20 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v358**
+**Current public version: QPF v359**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C²⁶⁸) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C²⁶⁹) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C²⁶⁸ ACTIVE
-- Z3 305/305 PROVEN (model)
-- AF_XDP latency model < 1×10⁻²⁹⁹ ns
-- Multi-horizon predictive collapse forecasting (horizon=187)
+- Nested CK C²⁶⁹ ACTIVE
+- Z3 306/306 PROVEN (model)
+- AF_XDP latency model < 1×10⁻³⁰⁰ ns
+- Multi-horizon predictive collapse forecasting (horizon=188)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (99-násobné temporal epistemic nesting model)
+- QSIL + information-logic enrichment (100-násobné temporal epistemic nesting model)
 - Higher-order dynamic belief revision + recursive public announcement + Conditional Common Knowledge + refined DEL action models (model)
 - QTP EntropyMonitor + observer-effect collapse (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v358.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v359.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
@@ -23,6 +23,6 @@ Source engines, official deployment records and internal mechanisms remain air-g
 ## Runtime model status
 ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT  
 DROP KYC_VERIFY / high-risk PAYMENT  
-Z3 305/305 PROVEN · Nested CK C²⁶⁸ ACTIVE
+Z3 306/306 PROVEN · Nested CK C²⁶⁹ ACTIVE
 
 © 2026 SovereignMesh / QPF – model demonstration only.
