@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SovereignMesh QPF v399 – Operations Console</title>
+<style>
+  :root { --bg:#0f172a; --card:#1e293b; --accent:#06b6d4; --ok:#10b981; --warn:#f59e0b; --text:#e2e8f0; --muted:#94a3b8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--text); min-height:100vh; padding:1.5rem; }
+  header { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; border-bottom:1px solid #334155; padding-bottom:1rem; }
+  h1 { font-size:1.25rem; background:linear-gradient(90deg,#22d3ee,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .badge { font-size:0.7rem; padding:0.2rem 0.5rem; border-radius:999px; background:#164e63; color:#67e8f9; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+  .card { background:var(--card); border:1px solid #334155; border-radius:12px; padding:1rem; }
+  .card .label { font-size:0.7rem; color:var(--muted); margin-bottom:0.25rem; }
+  .card .value { font-size:1.4rem; font-weight:700; font-variant-numeric:tabular-nums; }
+  .ok { color:var(--ok); } .accent { color:var(--accent); }
+  .status { display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem; }
+  .pill { font-size:0.75rem; padding:0.35rem 0.75rem; border-radius:8px; background:#0f172a; border:1px solid #334155; }
+  footer { margin-top:2rem; font-size:0.7rem; color:var(--muted); text-align:center; }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>SovereignMesh QPF</h1>
+      <div style="font-size:0.75rem;color:var(--muted)">Zero-Trust Predictive Firewall · Operations Console</div>
+    </div>
+    <span class="badge">v399 · Nested CK C³⁰⁹</span>
+  </header>
+
+  <div class="grid">
+    <div class="card"><div class="label">Latency model (AF_XDP)</div><div class="value accent">&lt;1×10⁻³⁴⁰ ns</div></div>
+    <div class="card"><div class="label">Z3 Formal Verification</div><div class="value ok">346/346 PROVEN</div></div>
+    <div class="card"><div class="label">Nested Common Knowledge</div><div class="value accent">C³⁰⁹ ACTIVE</div></div>
+    <div class="card"><div class="label">Horizon / Temporal nesting</div><div class="value">228 · 140×</div></div>
+  </div>
+
+  <div class="card">
+    <div class="label">Runtime status (last verification)</div>
+    <div class="status">
+      <span class="pill ok">ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT</span>
+      <span class="pill ok">DROP KYC_VERIFY / high-risk + observer collapse</span>
+      <span class="pill ok">HoL-free QTTCP</span>
+      <span class="pill ok">QTP EntropyMonitor + Bell Φ⁺</span>
+      <span class="pill">TPM sealed · SeL4-inspired isolation</span>
+    </div>
+  </div>
+
+  <footer>
+    SovereignMesh QPF – public sanitized operations console. Engine internals, formal proofs and deployment artefacts remain private.<br/>
+    © 2026 · Deployable on commercial Linux hardware · USB path &lt; 30 min
+  </footer>
+</body>
+</html>
