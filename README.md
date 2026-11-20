@@ -1,14 +1,14 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v401**
+**Current public version: QPF v402**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C³¹¹) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C³¹²) model, formal verification status and ultra-low latency path model.
 
-- Latency model (AF_XDP/libxdp): <1×10⁻³⁴² ns
-- Z3 formal verification: 348/348 PROVEN (model)
-- Nested CK: C³¹¹ ACTIVE
-- Multi-horizon forecasting: horizon = 230
-- Temporal epistemic nesting: 142×
+- Latency model (AF_XDP/libxdp): <1×10⁻³⁴³ ns
+- Z3 formal verification: 349/349 PROVEN (model)
+- Nested CK: C³¹² ACTIVE
+- Multi-horizon forecasting: horizon = 231
+- Temporal epistemic nesting: 143×
 - Transport: Full Native Pay QTTCP (HoL-free stream isolation)
 - Quantum-inspired layer: QTP EntropyMonitor + Bell Φ⁺ collapse
 - Hardening model: TPM sealed · SeL4-inspired isolation
@@ -16,7 +16,7 @@ Sanitized minimalist operations console for demonstration of Nested Common Knowl
 
 ## Public artefacts
 
-- `SovereignMesh_QPF_Unified_App_v401.html` – operations console (this repository)
+- `SovereignMesh_QPF_Unified_App_v402.html` – operations console (this repository)
 - Previous sanitized consoles remain for historical reference
 
 ## Policy
@@ -28,7 +28,7 @@ Only sanitized UI and this README are published. Engine source, official deploym
 ```
 ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT: PASSED
 DROP KYC_VERIFY / high-risk PAYMENT + observer collapse: PASSED
-Z3 348/348 PROVEN · Nested CK C³¹¹ ACTIVE · HoL-free QTTCP
+Z3 349/349 PROVEN · Nested CK C³¹² ACTIVE · HoL-free QTTCP
 ```
 
 © 2026 SovereignMesh
