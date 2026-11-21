@@ -1,21 +1,21 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v422**
+**Current public version: QPF v423**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C³³²) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C³³³) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C³³² ACTIVE
-- Z3 369/369 PROVEN (model)
-- AF_XDP latency model < 1×10⁻³¶³ ns
-- Multi-horizon predictive collapse forecasting (horizon=251)
+- Nested CK C³³³ ACTIVE
+- Z3 370/370 PROVEN (model)
+- AF_XDP latency model < 1×10⁻³⁶⁴ ns
+- Multi-horizon predictive collapse forecasting (horizon=252)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (163-násobné temporal epistemic nesting model)
+- QSIL + information-logic enrichment (164-násobné temporal epistemic nesting model)
 - Multi-agent temporal operators + higher-order common knowledge operators with recursive fixed-point semantics + temporal public announcement logic with delayed multi-agent announcements + Conditional Common Knowledge + refined DEL action models + product updates (model)
 - QTP EntropyMonitor + observer-effect collapse (model)
 - Real-time TI IOC streams integrated (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v422.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v423.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
@@ -24,6 +24,6 @@ Source engines, official deployment records and internal mechanisms remain air-g
 ## Runtime model status
 ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT  
 DROP KYC_VERIFY / high-risk PAYMENT + observer collapse + TI IOC  
-Z3 369/369 PROVEN · Nested CK C³³² ACTIVE
+Z3 370/370 PROVEN · Nested CK C³³³ ACTIVE
 
 © 2026 SovereignMesh / QPF – model demonstration only.
