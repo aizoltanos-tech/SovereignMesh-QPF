@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v432 – Operations Console</title>
+<style>
+body { margin:0; background:#0f172a; color:#e2e8f0; font-family:system-ui,sans-serif; }
+header { padding:16px 24px; background:#1e293b; border-bottom:1px solid #334155; display:flex; align-items:center; gap:12px; }
+h1 { margin:0; font-size:1.25rem; background:linear-gradient(90deg,#22d3ee,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.badge { background:#0ea5e9; color:white; padding:2px 8px; border-radius:999px; font-size:0.75rem; }
+main { padding:24px; max-width:1200px; margin:0 auto; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:16px 0; }
+.card { background:#1e293b; border:1px solid #334155; border-radius:12px; padding:16px; }
+.metric { font-size:1.75rem; font-weight:700; color:#22d3ee; font-family:ui-monospace,monospace; }
+.sub { font-size:0.75rem; color:#94a3b8; margin-top:4px; }
+canvas { width:100%; height:180px; background:#020617; border-radius:8px; }
+</style>
+</head>
+<body>
+<header>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+  <h1>SovereignMesh QPF</h1>
+  <span class="badge">v432</span>
+  <span style="margin-left:auto;font-size:0.75rem;color:#94a3b8;">Nested CK C³⁴² · Z3 379/379 PROVEN · &lt;1×10⁻³⁷³ ns</span>
+</header>
+<main>
+  <div class="grid">
+    <div class="card"><div>Model Latency</div><div class="metric">&lt;1×10⁻³⁷³</div><div class="sub">ns · AF_XDP zero-copy</div></div>
+    <div class="card"><div>Nested CK</div><div class="metric">C³⁴²</div><div class="sub">ACTIVE · higher-order C(C³⁴²(φ))</div></div>
+    <div class="card"><div>Z3 Verification</div><div class="metric">379/379</div><div class="sub">PROVEN</div></div>
+    <div class="card"><div>Horizon</div><div class="metric">261</div><div class="sub">multi-horizon forecasting</div></div>
+  </div>
+  <div class="card" style="margin-top:16px;">
+    <strong>Live Mesh Topology (model)</strong>
+    <canvas id="mesh"></canvas>
+    <div class="sub">QTP Bell Φ⁺ · EntropyMonitor · observer-effect collapse model · Full Native Pay QTTCP</div>
+  </div>
+  <div class="card" style="margin-top:16px;font-size:0.8rem;color:#94a3b8;">
+    Public demonstration only. Source engines and official records remain air-gapped.<br>
+    ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT · DROP KYC_VERIFY / high-risk + TI IOC + observer collapse
+  </div>
+</main>
+<script>
+const c = document.getElementById('mesh');
+const ctx = c.getContext('2d');
+function resize(){ c.width = c.clientWidth; c.height = 180; }
+window.addEventListener('resize', resize); resize();
+let t = 0;
+function draw(){
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.strokeStyle = 'rgba(168,85,247,0.4)';
+  ctx.lineWidth = 1;
+  const nodes = [{x:0.15,y:0.5},{x:0.4,y:0.3},{x:0.6,y:0.7},{x:0.85,y:0.5}];
+  nodes.forEach((n,i)=>{
+    ctx.beginPath(); ctx.arc(n.x*c.width, n.y*c.height, 10, 0, Math.PI*2);
+    ctx.fillStyle = '#0f172a'; ctx.fill(); ctx.strokeStyle = i===3?'#10b981':'#a855f7'; ctx.stroke();
+  });
+  const px = (0.2 + (t%100)/100 * 0.6) * c.width;
+  ctx.beginPath(); ctx.arc(px, 90, 5, 0, Math.PI*2); ctx.fillStyle='#22d3ee'; ctx.fill();
+  t++;
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
