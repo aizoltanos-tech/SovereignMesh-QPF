@@ -1,21 +1,21 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v451**
+**Current public version: QPF v452**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C³⁶¹) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C³⁶²) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C³⁶¹ ACTIVE
-- Z3 398/398 PROVEN (model)
-- AF_XDP latency model < 1×10⁻³⁹² ns
-- Multi-horizon predictive collapse forecasting (horizon=280)
+- Nested CK C³⁶² ACTIVE
+- Z3 399/399 PROVEN (model)
+- AF_XDP latency model < 1×10⁻³⁹³ ns
+- Multi-horizon predictive collapse forecasting (horizon=281)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (192-násobné temporal epistemic nesting model)
-- Multi-agent temporal operators + higher-order common knowledge operators with recursive fixed-point semantics + temporal public announcement logic with delayed multi-agent announcements + Conditional Common Knowledge + refined DEL action models + product updates + higher-order AGM recursive fixed-point + TI epistemic verification inside Bell Φ⁺ collapse + conditional common knowledge with recursive fixed-point semantics under multi-horizon (model)
+- QSIL + information-logic enrichment (193-násobné temporal epistemic nesting model)
+- Multi-agent temporal operators + higher-order common knowledge operators with recursive fixed-point semantics + temporal public announcement logic with delayed multi-agent announcements + Conditional Common Knowledge + refined DEL action models + product updates + higher-order AGM recursive fixed-point + TI epistemic verification inside Bell Φ⁺ collapse + higher-order multi-agent temporal operators with delayed conditional common knowledge fixed-point (model)
 - QTP EntropyMonitor + observer-effect collapse (model)
 - Real-time TI IOC streams integrated (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v451.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v452.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
@@ -24,6 +24,6 @@ Source engines, official deployment records and internal mechanisms remain air-g
 ## Runtime model status
 ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT  
 DROP KYC_VERIFY / high-risk PAYMENT + observer collapse + TI IOC  
-Z3 398/398 PROVEN · Nested CK C³⁶¹ ACTIVE
+Z3 399/399 PROVEN · Nested CK C³⁶² ACTIVE
 
 © 2026 SovereignMesh / QPF – model demonstration only.
