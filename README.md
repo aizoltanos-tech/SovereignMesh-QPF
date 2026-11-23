@@ -1,21 +1,21 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v449**
+**Current public version: QPF v450**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C¹⁵⁹) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C³⁶⁰) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C¹⁵⁹ ACTIVE
-- Z3 396/396 PROVEN (model)
-- AF_XDP latency model < 1×10⁻³⁹⁰ ns
-- Multi-horizon predictive collapse forecasting (horizon=278)
+- Nested CK C³⁶⁰ ACTIVE
+- Z3 397/397 PROVEN (model)
+- AF_XDP latency model < 1×10⁻³⁹¹ ns
+- Multi-horizon predictive collapse forecasting (horizon=279)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (190-násobné temporal epistemic nesting model)
+- QSIL + information-logic enrichment (191-násobné temporal epistemic nesting model)
 - Multi-agent temporal operators + higher-order common knowledge operators with recursive fixed-point semantics + temporal public announcement logic with delayed multi-agent announcements + Conditional Common Knowledge + refined DEL action models + product updates + higher-order AGM recursive fixed-point + TI epistemic verification inside Bell Φ⁺ collapse (model)
 - QTP EntropyMonitor + observer-effect collapse (model)
 - Real-time TI IOC streams integrated (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v449.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v450.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
@@ -24,6 +24,6 @@ Source engines, official deployment records and internal mechanisms remain air-g
 ## Runtime model status
 ALLOW INSTANT_PAYMENT / CLEARING_SETTLEMENT  
 DROP KYC_VERIFY / high-risk PAYMENT + observer collapse + TI IOC  
-Z3 396/396 PROVEN · Nested CK C¹⁵⁹ ACTIVE
+Z3 397/397 PROVEN · Nested CK C³⁶⁰ ACTIVE
 
 © 2026 SovereignMesh / QPF – model demonstration only.
