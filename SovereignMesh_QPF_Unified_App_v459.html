@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
 <meta charset="UTF-8">
-<title>SovereignMesh QPF v457 – Operations Console</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SovereignMesh QPF v459 – Operations Console</title>
 <style>
-:root{--bg:#0b1220;--card:#111827;--border:#1f2937;--text:#e5e7eb;--muted:#9ca3af;--accent:#22d3ee;--ok:#34d399;--warn:#fbbf24;--danger:#f87171;--purple:#a78bfa}
+:root { --bg:#0b1220; --card:#111827; --border:#1f2937; --accent:#22d3ee; --ok:#34d399; --warn:#fbbf24; --purple:#a78bfa; --muted:#9ca3af; }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:1.5rem}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:#e5e7eb;min-height:100vh;padding:1.5rem}
 .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
 h1{font-size:1.4rem;background:linear-gradient(90deg,#22d3ee,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .subtitle{color:var(--muted);font-size:0.85rem}
@@ -29,8 +29,8 @@ h1{font-size:1.4rem;background:linear-gradient(90deg,#22d3ee,#a78bfa);-webkit-ba
 <body>
 <div class="header">
   <div>
-    <h1>SovereignMesh QPF v457</h1>
-    <div class="subtitle">Operations Console – Nested CK C³⁶⁷ · Z3 404/404 · <1×10⁻³⁹⁸ ns model</div>
+    <h1>SovereignMesh QPF v459</h1>
+    <div class="subtitle">Operations Console – Nested CK C³⁶⁹ · Z3 406/406 · <1×10⁻⁴⁰⁰ ns model</div>
   </div>
   <div class="modes">
     <button class="mode active" onclick="setMode(this,'NORMAL')">Normal</button>
@@ -40,65 +40,56 @@ h1{font-size:1.4rem;background:linear-gradient(90deg,#22d3ee,#a78bfa);-webkit-ba
 </div>
 
 <div class="grid">
-  <div class="card"><h3>Latency model</h3><div class="val" style="color:var(--accent)"><1e-398 ns</div></div>
-  <div class="card"><h3>Z3 Proven</h3><div class="val" style="color:var(--ok)">404/404</div></div>
-  <div class="card"><h3>Nested CK</h3><div class="val" style="color:var(--purple)">C³⁶⁷</div></div>
-  <div class="card"><h3>Horizon</h3><div class="val">286</div></div>
+  <div class="card"><h3>Latency model</h3><div class="val" style="color:var(--accent)"><1e-400 ns</div></div>
+  <div class="card"><h3>Z3 Proven</h3><div class="val" style="color:var(--ok)">406/406</div></div>
+  <div class="card"><h3>Nested CK</h3><div class="val" style="color:var(--purple)">C³⁶⁹</div></div>
+  <div class="card"><h3>Horizon</h3><div class="val">288</div></div>
 </div>
 
 <div class="panel">
   <h2>Mesh Topology (sanitized model)</h2>
-  <canvas id="mesh" style="width:100%;height:160px;background:#0a0f1a;border-radius:0.5rem;border:1px solid var(--border)"></canvas>
+  <canvas id="mesh" width="800" height="180" style="width:100%;background:#0a0f1a;border-radius:0.5rem"></canvas>
+  <div class="status-line">
+    <span><span class="dot"></span> Nested CK C³⁶⁹ ACTIVE</span>
+    <span><span class="dot"></span> Z3 406/406 PROVEN</span>
+    <span><span class="dot"></span> TPM sealed</span>
+    <span><span class="dot"></span> QTTCP HoL-free</span>
+  </div>
 </div>
 
 <div class="panel">
   <h2>Activity Log (model)</h2>
   <div class="log" id="log">
-    <div>[ALLOW] INSTANT_PAYMENT</div>
-    <div>[ALLOW] CLEARING_SETTLEMENT</div>
-    <div>[DROP] KYC_VERIFY / high-risk</div>
-    <div>[DROP] PAYMENT / TI IOC / QSIL</div>
-  </div>
-  <div class="status-line">
-    <span><div class="dot"></div> Nested CK C³⁶⁷ ACTIVE</span>
-    <span><div class="dot"></div> HoL-free QTTCP</span>
-    <span><div class="dot"></div> TPM sealed</span>
-    <span><div class="dot"></div> extended higher-order temporal fixed-point</span>
+    <div>[model] ALLOW INSTANT_PAYMENT | latency_model=<1e-400 ns</div>
+    <div>[model] ALLOW CLEARING_SETTLEMENT</div>
+    <div>[model] DROP KYC_VERIFY | reason=HIGH_RISK</div>
+    <div>[model] Nested CK C³⁶⁹ + higher-order temporal fixed-point ACTIVE</div>
   </div>
 </div>
 
 <script>
-function setMode(el, m){
-  document.querySelectorAll('.mode').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
+function setMode(btn, mode) {
+  document.querySelectorAll('.mode').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
   const log = document.getElementById('log');
   const d = document.createElement('div');
-  d.textContent = `[MODE] ${m}`;
+  d.textContent = `[model] Mode switched to ${mode}`;
   log.prepend(d);
 }
 const c = document.getElementById('mesh');
 const ctx = c.getContext('2d');
-function resize(){ c.width = c.clientWidth; c.height = 160; }
-window.addEventListener('resize', resize); resize();
-function draw(){
+function draw() {
   ctx.clearRect(0,0,c.width,c.height);
-  ctx.strokeStyle = 'rgba(167,139,250,0.45)';
+  ctx.strokeStyle = 'rgba(167,139,250,0.4)';
   ctx.lineWidth = 1;
-  const nodes = [{x:0.15,y:0.5},{x:0.4,y:0.3},{x:0.6,y:0.7},{x:0.85,y:0.5}];
-  [[0,1],[0,2],[1,3],[2,3],[1,2]].forEach(([i,j])=>{
-    ctx.beginPath();
-    ctx.moveTo(nodes[i].x*c.width, nodes[i].y*c.height);
-    ctx.lineTo(nodes[j].x*c.width, nodes[j].y*c.height);
-    ctx.stroke();
+  const nodes = [{x:80,y:90},{x:280,y:50},{x:480,y:130},{x:680,y:90}];
+  [[0,1],[0,2],[1,3],[2,3],[1,2]].forEach(([i,j]) => {
+    ctx.beginPath(); ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y); ctx.stroke();
   });
-  nodes.forEach(n=>{
-    ctx.beginPath();
-    ctx.arc(n.x*c.width, n.y*c.height, 10, 0, Math.PI*2);
-    ctx.fillStyle = '#111827';
-    ctx.strokeStyle = '#22d3ee';
-    ctx.lineWidth = 2;
-    ctx.fill();
-    ctx.stroke();
+  nodes.forEach((n,i) => {
+    ctx.beginPath(); ctx.arc(n.x,n.y,12,0,Math.PI*2);
+    ctx.fillStyle = '#111827'; ctx.fill();
+    ctx.strokeStyle = i===0?'#3b82f6':i===3?'#34d399':'#a78bfa'; ctx.stroke();
   });
   requestAnimationFrame(draw);
 }
