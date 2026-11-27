@@ -1,21 +1,21 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v505**
+**Current public version: QPF v506**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴¹⁵) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴¹⁶) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C⁴¹⁵ ACTIVE
-- Z3 452/452 PROVEN (model)
-- AF_XDP latency model < 1×10⁻⁴⁴⁶ ns
-- Multi-horizon predictive collapse forecasting (horizon=334)
+- Nested CK C⁴¹⁶ ACTIVE
+- Z3 453/453 PROVEN (model)
+- AF_XDP latency model < 1×10⁻⁴⁴⁷ ns
+- Multi-horizon predictive collapse forecasting (horizon=335)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (246-násobné temporal epistemic nesting model)
-- Recursive higher-order multi-agent temporal fixed-point with further extended AGM priority expansion under further delayed multi-horizon observation + additional conditional common knowledge fixed-point with temporal delay operators and observer-effect product updates + extended DEL action models + PAL public announcements inside Bell-state collapse + refined multi-agent deontic operators with priority-based contraction under multi-horizon forecasting + further recursive product updates under observer-effect collapse with higher-order temporal fixed-points + nested higher-order epistemic operators with delayed multi-agent observation and AGM priority contraction
+- QSIL + information-logic enrichment (247-násobné temporal epistemic nesting model)
+- Recursive higher-order multi-agent temporal fixed-point with further extended AGM priority expansion under further delayed multi-horizon observation + additional conditional common knowledge fixed-point with temporal delay operators and observer-effect product updates + extended DEL action models + PAL public announcements inside Bell-state collapse + refined multi-agent deontic operators with priority-based contraction under multi-horizon forecasting + further recursive product updates under observer-effect collapse with higher-order temporal fixed-points + nested higher-order epistemic operators with delayed multi-agent observation and AGM priority contraction + additional recursive product updates under observer-effect collapse with higher-order temporal fixed-points and AGM priority expansion
 - QTP EntropyMonitor + observer-effect collapse (model)
 - Real-time TI IOC streams integrated (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v505.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v506.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
