@@ -1,21 +1,21 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v511**
+**Current public version: QPF v512**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C²´²¹) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C²´²²) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C²´²¹ ACTIVE
-- Z3 458/458 PROVEN (model)
-- AF_XDP latency model < 1×10⁻⁴⁵² ns
-- Multi-horizon predictive collapse forecasting (horizon=340)
+- Nested CK C²´²² ACTIVE
+- Z3 459/459 PROVEN (model)
+- AF_XDP latency model < 1×10⁻⁴⁵³ ns
+- Multi-horizon predictive collapse forecasting (horizon=341)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (252-násobné temporal epistemic nesting model)
-- Further nested higher-order temporal epistemic fixed-points under multi-horizon observer-effect with AGM priority expansion and contraction cycles + extended public announcement logic with conditional common knowledge updates under delayed multi-agent observation + refined DEL action models with product update semantics for wave-function collapse in payment streams + additional recursive multi-agent deontic priority operators with temporal delay and entropy-monitor coupling + higher-order recursive product updates under extended multi-horizon observer-effect with AGM priority and delayed conditional common knowledge
+- QSIL + information-logic enrichment (253-násobné temporal epistemic nesting model)
+- Further nested higher-order temporal epistemic fixed-points under multi-horizon observer-effect with AGM priority expansion and contraction cycles + extended public announcement logic with conditional common knowledge updates under delayed multi-agent observation + refined DEL action models with product update semantics for wave-function collapse in payment streams + additional recursive multi-agent deontic priority operators with temporal delay and entropy-monitor coupling + higher-order recursive product updates under extended multi-horizon observer-effect with AGM priority and delayed conditional common knowledge + further recursive multi-agent epistemic operators with delayed observation and AGM priority contraction
 - QTP EntropyMonitor + observer-effect collapse (model)
 - Real-time TI IOC streams integrated (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v511.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v512.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
