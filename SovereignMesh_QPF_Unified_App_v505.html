@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v505 – Operations Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root { --bg:#0f172a; --card:#1e293b; --cyan:#22d3ee; --purple:#a855f7; --green:#10b981; --amber:#f59e0b; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:#e2e8f0; font-family:system-ui,sans-serif; }
+header { padding:16px 24px; border-bottom:1px solid #334155; display:flex; align-items:center; gap:12px; }
+h1 { margin:0; font-size:1.4rem; background:linear-gradient(90deg,#22d3ee,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.badge { background:#0f172a; border:1px solid var(--cyan); color:var(--cyan); padding:2px 8px; border-radius:999px; font-size:0.75rem; }
+main { padding:24px; max-width:1200px; margin:0 auto; display:grid; gap:16px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+.card { background:var(--card); border:1px solid #334155; border-radius:12px; padding:16px; }
+.card h3 { margin:0 0 8px; font-size:0.85rem; color:#94a3b8; }
+.metric { font-size:1.8rem; font-weight:700; color:var(--cyan); }
+.small { font-size:0.75rem; color:#64748b; }
+.status { color:var(--green); }
+.controls { display:flex; gap:8px; flex-wrap:wrap; }
+button { background:#1e293b; border:1px solid #475569; color:#e2e8f0; padding:8px 14px; border-radius:8px; cursor:pointer; }
+button.active { border-color:var(--cyan); color:var(--cyan); }
+#mesh { height:180px; background:#020617; border-radius:8px; }
+</style>
+</head>
+<body>
+<header>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+  <h1>SovereignMesh QPF</h1>
+  <span class="badge">v505 • Nested CK C⁴¹⁵</span>
+</header>
+<main>
+  <div class="grid">
+    <div class="card">
+      <h3>Model Latency (AF_XDP)</h3>
+      <div class="metric">&lt;1×10⁻⁴⁴⁶ ns</div>
+      <div class="small">Zero-copy path model</div>
+    </div>
+    <div class="card">
+      <h3>Z3 Formal Verification</h3>
+      <div class="metric status">452/452 PROVEN</div>
+      <div class="small">Distributed QSIL invariants</div>
+    </div>
+    <div class="card">
+      <h3>Nested Common Knowledge</h3>
+      <div class="metric">C⁴¹⁵</div>
+      <div class="small">+ higher-order C(C⁴¹⁵(φ))</div>
+    </div>
+    <div class="card">
+      <h3>Multi-horizon Forecasting</h3>
+      <div class="metric">334</div>
+      <div class="small">Predictive collapse</div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Information Logic Enrichment</h3>
+    <div class="small">246-násobné temporal epistemic nesting + recursive higher-order multi-agent temporal fixed-point with further extended AGM priority expansion under further delayed multi-horizon observation + additional conditional common knowledge fixed-point with temporal delay operators and observer-effect product updates + extended DEL action models + PAL public announcements inside Bell-state collapse + refined multi-agent deontic operators with priority-based contraction under multi-horizon forecasting + further recursive product updates under observer-effect collapse with higher-order temporal fixed-points + nested higher-order epistemic operators with delayed multi-agent observation and AGM priority contraction</div>
+  </div>
+  <div class="card">
+    <h3>Mesh Topology (model)</h3>
+    <div id="mesh"></div>
+    <div class="small">Bell-state Φ⁺ entanglement + QTP EntropyMonitor + QSIL multi-node</div>
+  </div>
+  <div class="controls">
+    <button class="active">Normal</button>
+    <button>Stress</button>
+    <button>Air-Gap</button>
+  </div>
+  <div class="small">Sanitized operations console – source mechanisms private per public push policy.</div>
+</main>
+</body>
+</html>
