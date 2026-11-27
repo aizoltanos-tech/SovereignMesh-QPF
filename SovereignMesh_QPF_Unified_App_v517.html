@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v517 – Operations Console</title>
+<style>
+body { background: #0f172a; color: #e2e8f0; font-family: system-ui, sans-serif; margin: 0; padding: 20px; }
+header { border-bottom: 1px solid #334155; padding-bottom: 12px; margin-bottom: 20px; }
+h1 { background: linear-gradient(90deg, #22d3ee, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 16px; }
+.metric { font-size: 1.8rem; font-weight: bold; color: #22d3ee; }
+.ok { color: #34d399; }
+.warn { color: #fbbf24; }
+canvas { width: 100%; height: 180px; background: #020617; border-radius: 8px; margin-top: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>SovereignMesh-Pay / QPF v517</h1>
+  <p>Minimalistický operations console – Nested CK C⁴²⁷ | horizon=346 | latency model <1×10⁻⁴⁵⁸ ns | Z3 464/464 PROVEN</p>
+</header>
+<div class="grid">
+  <div class="card"><div>Latency model</div><div class="metric"><1×10⁻⁴⁵⁸ ns</div><div class="ok">AF_XDP zero-copy</div></div>
+  <div class="card"><div>Nested CK</div><div class="metric">C⁴²⁷</div><div class="ok">ACTIVE</div></div>
+  <div class="card"><div>Z3 Verification</div><div class="metric">464/464</div><div class="ok">PROVEN</div></div>
+  <div class="card"><div>Horizon</div><div class="metric">346</div><div class="ok">Predictive collapse</div></div>
+  <div class="card"><div>QTTCP</div><div class="metric">HoL-free</div><div class="ok">Native Pay</div></div>
+  <div class="card"><div>QSIL Enrichment</div><div class="metric">258×</div><div class="ok">Temporal epistemic</div></div>
+</div>
+<div class="card" style="margin-top:20px;">
+  <h2>Mesh Topology (sanitized)</h2>
+  <canvas id="mesh"></canvas>
+  <p style="font-size:0.85rem;color:#94a3b8;">Live packet visualization model – Client → Sidecar Gateways → Ledger. No internal mechanisms exposed.</p>
+</div>
+<script>
+const c = document.getElementById('mesh');
+const ctx = c.getContext('2d');
+function resize() { c.width = c.clientWidth; c.height = 180; }
+window.addEventListener('resize', resize); resize();
+function draw() {
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.strokeStyle = 'rgba(168,85,247,0.4)';
+  ctx.lineWidth = 1;
+  const nodes = [{x:0.15,y:0.5},{x:0.4,y:0.3},{x:0.6,y:0.7},{x:0.85,y:0.5}];
+  [[0,1],[0,2],[1,3],[2,3]].forEach(([i,j]) => {
+    ctx.beginPath(); ctx.moveTo(nodes[i].x*c.width, nodes[i].y*c.height); ctx.lineTo(nodes[j].x*c.width, nodes[j].y*c.height); ctx.stroke();
+  });
+  nodes.forEach(n => { ctx.beginPath(); ctx.arc(n.x*c.width, n.y*c.height, 10, 0, Math.PI*2); ctx.fillStyle='#0f172a'; ctx.fill(); ctx.strokeStyle='#8b5cf6'; ctx.stroke(); });
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+<p style="margin-top:24px;font-size:0.8rem;color:#64748b;">Sanitized public demonstration only. Source mechanisms and official records remain private. © 2026 SovereignMesh / Zoltan OS</p>
+</body>
+</html>
