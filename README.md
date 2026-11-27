@@ -1,21 +1,21 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v510**
+**Current public version: QPF v511**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴²⁰) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C²´²¹) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C⁴²⁰ ACTIVE
-- Z3 457/457 PROVEN (model)
-- AF_XDP latency model < 1×10⁻⁴⁵¹ ns
-- Multi-horizon predictive collapse forecasting (horizon=339)
+- Nested CK C²´²¹ ACTIVE
+- Z3 458/458 PROVEN (model)
+- AF_XDP latency model < 1×10⁻⁴⁵² ns
+- Multi-horizon predictive collapse forecasting (horizon=340)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (251-násobné temporal epistemic nesting model)
-- Further nested higher-order temporal epistemic fixed-points under multi-horizon observer-effect with AGM priority expansion and contraction cycles + extended public announcement logic with conditional common knowledge updates under delayed multi-agent observation + refined DEL action models with product update semantics for wave-function collapse in payment streams + additional recursive multi-agent deontic priority operators with temporal delay and entropy-monitor coupling
+- QSIL + information-logic enrichment (252-násobné temporal epistemic nesting model)
+- Further nested higher-order temporal epistemic fixed-points under multi-horizon observer-effect with AGM priority expansion and contraction cycles + extended public announcement logic with conditional common knowledge updates under delayed multi-agent observation + refined DEL action models with product update semantics for wave-function collapse in payment streams + additional recursive multi-agent deontic priority operators with temporal delay and entropy-monitor coupling + higher-order recursive product updates under extended multi-horizon observer-effect with AGM priority and delayed conditional common knowledge
 - QTP EntropyMonitor + observer-effect collapse (model)
 - Real-time TI IOC streams integrated (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v510.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v511.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
