@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v529 – Operations Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root { --bg:#0f172a; --card:#1e293b; --cyan:#22d3ee; --purple:#a855f7; --emerald:#10b981; --amber:#f59e0b; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:#f1f5f9; font-family:system-ui,sans-serif; }
+header { padding:16px 24px; border-bottom:1px solid #334155; display:flex; align-items:center; gap:12px; }
+h1 { margin:0; font-size:1.25rem; background:linear-gradient(90deg,#22d3ee,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.badge { font-size:.75rem; background:#1e293b; padding:4px 10px; border-radius:999px; border:1px solid #334155; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; padding:24px; }
+.card { background:var(--card); border:1px solid #334155; border-radius:16px; padding:20px; }
+.metric { font-size:2rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.metric.cyan { color:var(--cyan); }
+.metric.purple { color:var(--purple); }
+.metric.emerald { color:var(--emerald); }
+.sub { font-size:.75rem; color:#94a3b8; margin-top:4px; }
+canvas { width:100%; height:180px; background:#0f172a; border-radius:12px; border:1px solid #334155; }
+footer { padding:12px 24px; font-size:.75rem; color:#64748b; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+  <div>
+    <h1>SovereignMesh QPF</h1>
+    <div style="font-size:.75rem;color:#94a3b8">Operations Console · v529</div>
+  </div>
+  <span class="badge" style="margin-left:auto">Nested CK C¹⁴³⁹ ACTIVE</span>
+</header>
+
+<div class="grid">
+  <div class="card">
+    <div class="sub">Latence model</div>
+    <div class="metric cyan">&lt;1×10⁻⁴⁷⁰ <span style="font-size:.8rem">ns</span></div>
+    <div class="sub">AF_XDP zero-copy path</div>
+  </div>
+  <div class="card">
+    <div class="sub">Formální verifikace</div>
+    <div class="metric emerald">476/476</div>
+    <div class="sub">Z3 PROVEN</div>
+  </div>
+  <div class="card">
+    <div class="sub">Multi-horizon forecast</div>
+    <div class="metric purple">358</div>
+    <div class="sub">Predictive collapse</div>
+  </div>
+  <div class="card">
+    <div class="sub">Temporal nesting</div>
+    <div class="metric cyan">270×</div>
+    <div class="sub">Information logic enrichment</div>
+  </div>
+</div>
+
+<div style="padding:0 24px 24px">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <strong>Mesh Topology (sanitized)</strong>
+      <span class="badge">QTTCP · HoL-free</span>
+    </div>
+    <canvas id="mesh"></canvas>
+  </div>
+</div>
+
+<footer>
+  SovereignMesh QPF v529 · Sanitized public console · Source & official records remain private · 2026-11-28
+</footer>
+
+<script>
+const c = document.getElementById('mesh');
+const ctx = c.getContext('2d');
+function resize(){ c.width = c.clientWidth; c.height = 180; }
+window.addEventListener('resize', resize); resize();
+const nodes = [
+  {x:.15,y:.5,label:'Client'},
+  {x:.4,y:.3,label:'Gateway A'},
+  {x:.6,y:.7,label:'Gateway B'},
+  {x:.85,y:.5,label:'Ledger'}
+];
+function draw(){
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.strokeStyle = 'rgba(168,85,247,.35)';
+  ctx.lineWidth = 1.5;
+  [[0,1],[0,2],[1,3],[2,3],[1,2]].forEach(([i,j])=>{
+    ctx.beginPath();
+    ctx.moveTo(nodes[i].x*c.width, nodes[i].y*c.height);
+    ctx.lineTo(nodes[j].x*c.width, nodes[j].y*c.height);
+    ctx.stroke();
+  });
+  nodes.forEach(n=>{
+    const x=n.x*c.width, y=n.y*c.height;
+    ctx.beginPath(); ctx.arc(x,y,14,0,Math.PI*2);
+    ctx.fillStyle='#0f172a'; ctx.fill();
+    ctx.strokeStyle='#a855f7'; ctx.stroke();
+    ctx.fillStyle='#e2e8f0'; ctx.font='11px sans-serif'; ctx.textAlign='center';
+    ctx.fillText(n.label, x, y+28);
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
