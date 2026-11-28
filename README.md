@@ -1,23 +1,22 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v525**
+**Current public version: QPF v526**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴³⁵) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴³⁶) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C⁴³⁵ ACTIVE
-- Z3 472/472 PROVEN (model)
-- AF_XDP latency model < 1×10⁻⁴⁶⁶ ns
-- Multi-horizon predictive collapse forecasting (horizon=354)
+- Nested CK C⁴³⁶ ACTIVE
+- Z3 473/473 PROVEN (model)
+- AF_XDP latency model < 1×10⁻⁴⁶⁷ ns
+- Multi-horizon predictive collapse forecasting (horizon=355)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (266-násobné temporal epistemic nesting model)
-- Higher-order recursive multi-agent epistemic operators with delayed observation and AGM priority contraction under multi-horizon forecasting
-- Additional nested higher-order temporal fixed-points under refined observer-effect product updates with AGM priority expansion
-- Extended multi-agent temporal fixed-point with recursive product updates under delayed multi-horizon observer-effect
+- QSIL + information-logic enrichment (267-násobné temporal epistemic nesting model)
+- Further recursive higher-order multi-agent temporal fixed-points with AGM priority expansion under delayed multi-horizon observation coupled to EntropyMonitor
+- Additional nested higher-order epistemic operators with product update semantics for observer-effect wave-function collapse in payment streams
 - QTP EntropyMonitor + observer-effect collapse (model)
 - Real-time TI IOC streams integrated (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v525.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v526.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
