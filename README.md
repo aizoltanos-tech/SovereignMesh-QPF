@@ -1,22 +1,23 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v523**
+**Current public version: QPF v524**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴³³) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴³⁴) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C⁴³³ ACTIVE
-- Z3 470/470 PROVEN (model)
-- AF_XDP latency model < 1×10⁻⁴⁶⁴ ns
-- Multi-horizon predictive collapse forecasting (horizon=352)
+- Nested CK C⁴³⁴ ACTIVE
+- Z3 471/471 PROVEN (model)
+- AF_XDP latency model < 1×10⁻⁴⁶⁵ ns
+- Multi-horizon predictive collapse forecasting (horizon=353)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (264-násobné temporal epistemic nesting model)
-- Additional recursive multi-agent deontic priority operators with temporal delay and direct EntropyMonitor coupling under observer-effect collapse
-- Higher-order recursive product updates under extended multi-horizon observer-effect with AGM priority expansion/contraction cycles and delayed conditional common knowledge updates in payment streams
+- QSIL + information-logic enrichment (265-násobné temporal epistemic nesting model)
+- Recursive multi-agent temporal fixed-points with AGM priority contraction under further delayed multi-horizon observation coupled to EntropyMonitor
+- Extended public announcement logic with conditional common knowledge updates under delayed multi-agent observation
+- Refined DEL action models with product update semantics for wave-function collapse in payment streams
 - QTP EntropyMonitor + observer-effect collapse (model)
 - Real-time TI IOC streams integrated (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v523.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v524.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
