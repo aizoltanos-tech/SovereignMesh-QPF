@@ -2,9 +2,9 @@
 
 **Current public version: QPF v533**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴⁴³) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C¹´³) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C⁴⁴³ ACTIVE
+- Nested CK C¹´³ ACTIVE
 - Z3 480/480 PROVEN (model)
 - AF_XDP latency model < 1×10⁻⁴⁷⁴ ns
 - Multi-horizon predictive collapse forecasting (horizon=362)
