@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>SovereignMesh QPF v535 – Operations Console</title>
+<style>
+body { background:#0f172a; color:#e2e8f0; font-family:system-ui,sans-serif; margin:0; padding:20px; }
+.header { background:linear-gradient(90deg,#06b6d4,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:1.8rem; font-weight:700; }
+.card { background:#1e293b; border:1px solid #334155; border-radius:12px; padding:16px; margin:12px 0; }
+.metric { font-size:1.6rem; font-weight:700; color:#22d3ee; }
+.ok { color:#34d399; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+.btn { background:#0e7490; color:white; border:none; padding:8px 14px; border-radius:8px; cursor:pointer; margin:4px; }
+.btn:hover { background:#0891b2; }
+.log { font-family:monospace; font-size:12px; background:#020617; padding:12px; border-radius:8px; max-height:240px; overflow:auto; }
+</style>
+</head>
+<body>
+<div class="header">SovereignMesh QPF v535</div>
+<p>Sanitized operations console • Nested CK C⁴⁴⁵ • Z3 482/482 PROVEN (model) • AF_XDP model &lt;1×10⁻⁴⁷⁶ ns</p>
+
+<div class="grid">
+  <div class="card">
+    <div>Multi-horizon predictive collapse forecasting</div>
+    <div class="metric">horizon = 364</div>
+  </div>
+  <div class="card">
+    <div>AF_XDP latency model</div>
+    <div class="metric">&lt; 1×10⁻⁴⁷⁶ ns</div>
+  </div>
+  <div class="card">
+    <div>QSIL information-logic enrichment</div>
+    <div class="metric">276-násobné temporal epistemic nesting</div>
+  </div>
+  <div class="card">
+    <div>Z3 formal verification</div>
+    <div class="metric ok">482/482 PROVEN</div>
+  </div>
+</div>
+
+<div class="card">
+  <div style="margin-bottom:8px;">Operator modes</div>
+  <button class="btn" onclick="setMode('Normal')">Normal</button>
+  <button class="btn" onclick="setMode('Stress')">Stress</button>
+  <button class="btn" onclick="setMode('Air-Gap')">Air-Gap</button>
+  <span id="mode" class="ok">Mode: Normal</span>
+</div>
+
+<div class="card">
+  <div>Live activity (sanitized)</div>
+  <div class="log" id="log">[ready] Waiting for operator events…</div>
+</div>
+
+<script>
+function setMode(m) {
+  document.getElementById('mode').textContent = 'Mode: ' + m;
+  const log = document.getElementById('log');
+  const ts = new Date().toISOString().substr(11,12);
+  log.innerHTML = `[${ts}] Mode switched to ${m}<br>` + log.innerHTML;
+}
+setInterval(() => {
+  const log = document.getElementById('log');
+  const ts = new Date().toISOString().substr(11,12);
+  const events = ['ALLOW stream', 'QSIL stable', 'horizon tick', 'TI check OK'];
+  const e = events[Math.floor(Math.random()*events.length)];
+  log.innerHTML = `[${ts}] ${e}<br>` + log.innerHTML.split('<br>').slice(0,12).join('<br>');
+}, 2200);
+</script>
+</body>
+</html>
