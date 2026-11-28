@@ -1,23 +1,23 @@
 # SovereignMesh QPF / SHIELD
 
-**Current public version: QPF v524**
+**Current public version: QPF v525**
 
-Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴³⁴) model, formal verification status and ultra-low latency path model.
+Sanitized minimalist operations console for demonstration of Nested Common Knowledge (C⁴³⁵) model, formal verification status and ultra-low latency path model.
 
-- Nested CK C⁴³⁴ ACTIVE
-- Z3 471/471 PROVEN (model)
-- AF_XDP latency model < 1×10⁻⁴⁶⁵ ns
-- Multi-horizon predictive collapse forecasting (horizon=353)
+- Nested CK C⁴³⁵ ACTIVE
+- Z3 472/472 PROVEN (model)
+- AF_XDP latency model < 1×10⁻⁴⁶⁶ ns
+- Multi-horizon predictive collapse forecasting (horizon=354)
 - Full Native Pay QTTCP (model)
-- QSIL + information-logic enrichment (265-násobné temporal epistemic nesting model)
-- Recursive multi-agent temporal fixed-points with AGM priority contraction under further delayed multi-horizon observation coupled to EntropyMonitor
-- Extended public announcement logic with conditional common knowledge updates under delayed multi-agent observation
-- Refined DEL action models with product update semantics for wave-function collapse in payment streams
+- QSIL + information-logic enrichment (266-násobné temporal epistemic nesting model)
+- Higher-order recursive multi-agent epistemic operators with delayed observation and AGM priority contraction under multi-horizon forecasting
+- Additional nested higher-order temporal fixed-points under refined observer-effect product updates with AGM priority expansion
+- Extended multi-agent temporal fixed-point with recursive product updates under delayed multi-horizon observer-effect
 - QTP EntropyMonitor + observer-effect collapse (model)
 - Real-time TI IOC streams integrated (model)
 
 ## Public assets
-- `SovereignMesh_QPF_Unified_App_v524.html` – **current minimalist operations console**
+- `SovereignMesh_QPF_Unified_App_v525.html` – **current minimalist operations console**
 - Previous versions remain available for reference
 - This README
 
